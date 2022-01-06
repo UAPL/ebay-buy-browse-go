@@ -27,43 +27,43 @@ var (
 type ShoppingCartApiService service
 
 type ApiAddItemRequest struct {
-	ctx _context.Context
-	ApiService *ShoppingCartApiService
+	ctx              _context.Context
+	ApiService       *ShoppingCartApiService
 	addCartItemInput *AddCartItemInput
 }
 
-func (r ApiAddItemRequest) AddCartItemInput(addCartItemInput AddCartItemInput) ApiAddItemRequest {
+func (r *ApiAddItemRequest) AddCartItemInput(addCartItemInput AddCartItemInput) *ApiAddItemRequest {
 	r.addCartItemInput = &addCartItemInput
 	return r
 }
 
-func (r ApiAddItemRequest) Execute() (RemoteShopcartResponse, *_nethttp.Response, error) {
+func (r *ApiAddItemRequest) Execute() (RemoteShopcartResponse, *_nethttp.Response, error) {
 	return r.ApiService.AddItemExecute(r)
 }
 
 /*
 AddItem Method for AddItem
 
-<span class="tablenote"><b>Note: </b><img src="/cms/img/docs/experimental-icon.svg" class="legend-icon experimental-icon" alt="Experimental Release" title="Experimental Release" alt="Experimental Release" title="Experimental Release" />  This is an <a href="https://developer.ebay.com/api-docs/static/versioning.html#experimental">Experimental</a> method that is available as a <a href="https://developer.ebay.com/api-docs/static/versioning.html#limited" target="_blank"> <img src="/cms/img/docs/partners-api.svg" class="legend-icon partners-icon" title="Limited Release"  alt="Limited Release" />(Limited Release)</a> to select developers approved by business units.</span>  <p>This method creates an eBay cart for the eBay member, if one does not exist, and adds items to that cart. Because a cart never expires, any item added to the cart will remain in the cart until it is removed.  <br /><br />To use this method, you must submit a RESTful item ID and the quantity of the item. If the <b> quantity</b> value is greater than the number of available, the <b> quantity</b> value is changed to the number available and a warning is returned. For example, if there are 15 baseballs available and you set the <b> quantity</b> value to 50, the service automatically changes the value of <b>quantity</b> to 15.    <br /><br />The response returns all the items in the eBay member's cart; items added to the cart while on ebay.com as well as items added to the cart using the Browse API.   The quantity and state of an item changes often. If the item becomes "unavailable" such as, when the listing has ended or the item is out of stock, whether it has just been added to the cart or has been in the cart for some time, the item will be returned in the <b> unavailableCartItems</b> container.</p>       <p span class="tablenote"><b>Note: </b>There are differences between how legacy APIs, such as Finding, and RESTful APIs, such as Browse, return the identifier of an "item" and what the item ID represents. If you have an item ID from one of the legacy APIs, you can use the legacy item ID with the <a href="/api-docs/buy/browse/resources/item/methods/getItemByLegacyId"> getItemByLegacyId</a> method to retrieve the RESTful ID for that item. For more information about how to use legacy IDs with the Buy APIs, see <a href="/api-docs/buy/static/api-browse.html#Legacy">Legacy API compatibility</a> in the Buying Integration guide.</p>           <h3><b>URLs for this method</b></h3>           <p><ul>  <li><b> Production URL: </b> <code>https://api.ebay.com/buy/browse/v1/shopping_cart/add_item</code></li>            <li><b> Sandbox URL:  </b><code>https://api.sandbox.ebay.com/buy/browse/v1/shopping_cart/add_item</code>  <br /><br /><b>Note: </b>This method is not available in the eBay API Explorer.</li>    </ul>    </p>            <h3><b>Restrictions </b></h3> <ul> <li>This method can be used only for eBay members.</li>  <li>You can add only items with a FIXED_PRICE that accept PayPal as a payment.  </li> </ul> <p>For a list of supported sites and other restrictions, see <a href="/api-docs/buy/browse/overview.html#API">API Restrictions</a>.</p>  
+<span class="tablenote"><b>Note: </b><img src="/cms/img/docs/experimental-icon.svg" class="legend-icon experimental-icon" alt="Experimental Release" title="Experimental Release" alt="Experimental Release" title="Experimental Release" />  This is an <a href="https://developer.ebay.com/api-docs/static/versioning.html#experimental">Experimental</a> method that is available as a <a href="https://developer.ebay.com/api-docs/static/versioning.html#limited" target="_blank"> <img src="/cms/img/docs/partners-api.svg" class="legend-icon partners-icon" title="Limited Release"  alt="Limited Release" />(Limited Release)</a> to select developers approved by business units.</span>  <p>This method creates an eBay cart for the eBay member, if one does not exist, and adds items to that cart. Because a cart never expires, any item added to the cart will remain in the cart until it is removed.  <br /><br />To use this method, you must submit a RESTful item ID and the quantity of the item. If the <b> quantity</b> value is greater than the number of available, the <b> quantity</b> value is changed to the number available and a warning is returned. For example, if there are 15 baseballs available and you set the <b> quantity</b> value to 50, the service automatically changes the value of <b>quantity</b> to 15.    <br /><br />The response returns all the items in the eBay member's cart; items added to the cart while on ebay.com as well as items added to the cart using the Browse API.   The quantity and state of an item changes often. If the item becomes "unavailable" such as, when the listing has ended or the item is out of stock, whether it has just been added to the cart or has been in the cart for some time, the item will be returned in the <b> unavailableCartItems</b> container.</p>       <p span class="tablenote"><b>Note: </b>There are differences between how legacy APIs, such as Finding, and RESTful APIs, such as Browse, return the identifier of an "item" and what the item ID represents. If you have an item ID from one of the legacy APIs, you can use the legacy item ID with the <a href="/api-docs/buy/browse/resources/item/methods/getItemByLegacyId"> getItemByLegacyId</a> method to retrieve the RESTful ID for that item. For more information about how to use legacy IDs with the Buy APIs, see <a href="/api-docs/buy/static/api-browse.html#Legacy">Legacy API compatibility</a> in the Buying Integration guide.</p>           <h3><b>URLs for this method</b></h3>           <p><ul>  <li><b> Production URL: </b> <code>https://api.ebay.com/buy/browse/v1/shopping_cart/add_item</code></li>            <li><b> Sandbox URL:  </b><code>https://api.sandbox.ebay.com/buy/browse/v1/shopping_cart/add_item</code>  <br /><br /><b>Note: </b>This method is not available in the eBay API Explorer.</li>    </ul>    </p>            <h3><b>Restrictions </b></h3> <ul> <li>This method can be used only for eBay members.</li>  <li>You can add only items with a FIXED_PRICE that accept PayPal as a payment.  </li> </ul> <p>For a list of supported sites and other restrictions, see <a href="/api-docs/buy/browse/overview.html#API">API Restrictions</a>.</p>
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAddItemRequest
 */
-func (a *ShoppingCartApiService) AddItem(ctx _context.Context) ApiAddItemRequest {
-	return ApiAddItemRequest{
+func (a *ShoppingCartApiService) AddItem(ctx _context.Context) *ApiAddItemRequest {
+	return &ApiAddItemRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 //  @return RemoteShopcartResponse
-func (a *ShoppingCartApiService) AddItemExecute(r ApiAddItemRequest) (RemoteShopcartResponse, *_nethttp.Response, error) {
+func (a *ShoppingCartApiService) AddItemExecute(r *ApiAddItemRequest) (RemoteShopcartResponse, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  RemoteShopcartResponse
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue RemoteShopcartResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShoppingCartApiService.AddItem")
@@ -134,12 +134,11 @@ func (a *ShoppingCartApiService) AddItemExecute(r ApiAddItemRequest) (RemoteShop
 }
 
 type ApiGetShoppingCartRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService *ShoppingCartApiService
 }
 
-
-func (r ApiGetShoppingCartRequest) Execute() (RemoteShopcartResponse, *_nethttp.Response, error) {
+func (r *ApiGetShoppingCartRequest) Execute() (RemoteShopcartResponse, *_nethttp.Response, error) {
 	return r.ApiService.GetShoppingCartExecute(r)
 }
 
@@ -151,21 +150,21 @@ GetShoppingCart Method for GetShoppingCart
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetShoppingCartRequest
 */
-func (a *ShoppingCartApiService) GetShoppingCart(ctx _context.Context) ApiGetShoppingCartRequest {
-	return ApiGetShoppingCartRequest{
+func (a *ShoppingCartApiService) GetShoppingCart(ctx _context.Context) *ApiGetShoppingCartRequest {
+	return &ApiGetShoppingCartRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 //  @return RemoteShopcartResponse
-func (a *ShoppingCartApiService) GetShoppingCartExecute(r ApiGetShoppingCartRequest) (RemoteShopcartResponse, *_nethttp.Response, error) {
+func (a *ShoppingCartApiService) GetShoppingCartExecute(r *ApiGetShoppingCartRequest) (RemoteShopcartResponse, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  RemoteShopcartResponse
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue RemoteShopcartResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShoppingCartApiService.GetShoppingCart")
@@ -234,17 +233,17 @@ func (a *ShoppingCartApiService) GetShoppingCartExecute(r ApiGetShoppingCartRequ
 }
 
 type ApiRemoveItemRequest struct {
-	ctx _context.Context
-	ApiService *ShoppingCartApiService
+	ctx                 _context.Context
+	ApiService          *ShoppingCartApiService
 	removeCartItemInput *RemoveCartItemInput
 }
 
-func (r ApiRemoveItemRequest) RemoveCartItemInput(removeCartItemInput RemoveCartItemInput) ApiRemoveItemRequest {
+func (r *ApiRemoveItemRequest) RemoveCartItemInput(removeCartItemInput RemoveCartItemInput) *ApiRemoveItemRequest {
 	r.removeCartItemInput = &removeCartItemInput
 	return r
 }
 
-func (r ApiRemoveItemRequest) Execute() (RemoteShopcartResponse, *_nethttp.Response, error) {
+func (r *ApiRemoveItemRequest) Execute() (RemoteShopcartResponse, *_nethttp.Response, error) {
 	return r.ApiService.RemoveItemExecute(r)
 }
 
@@ -256,21 +255,21 @@ RemoveItem Method for RemoveItem
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiRemoveItemRequest
 */
-func (a *ShoppingCartApiService) RemoveItem(ctx _context.Context) ApiRemoveItemRequest {
-	return ApiRemoveItemRequest{
+func (a *ShoppingCartApiService) RemoveItem(ctx _context.Context) *ApiRemoveItemRequest {
+	return &ApiRemoveItemRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 //  @return RemoteShopcartResponse
-func (a *ShoppingCartApiService) RemoveItemExecute(r ApiRemoveItemRequest) (RemoteShopcartResponse, *_nethttp.Response, error) {
+func (a *ShoppingCartApiService) RemoveItemExecute(r *ApiRemoveItemRequest) (RemoteShopcartResponse, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  RemoteShopcartResponse
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue RemoteShopcartResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShoppingCartApiService.RemoveItem")
@@ -341,17 +340,17 @@ func (a *ShoppingCartApiService) RemoveItemExecute(r ApiRemoveItemRequest) (Remo
 }
 
 type ApiUpdateQuantityRequest struct {
-	ctx _context.Context
-	ApiService *ShoppingCartApiService
+	ctx                 _context.Context
+	ApiService          *ShoppingCartApiService
 	updateCartItemInput *UpdateCartItemInput
 }
 
-func (r ApiUpdateQuantityRequest) UpdateCartItemInput(updateCartItemInput UpdateCartItemInput) ApiUpdateQuantityRequest {
+func (r *ApiUpdateQuantityRequest) UpdateCartItemInput(updateCartItemInput UpdateCartItemInput) *ApiUpdateQuantityRequest {
 	r.updateCartItemInput = &updateCartItemInput
 	return r
 }
 
-func (r ApiUpdateQuantityRequest) Execute() (RemoteShopcartResponse, *_nethttp.Response, error) {
+func (r *ApiUpdateQuantityRequest) Execute() (RemoteShopcartResponse, *_nethttp.Response, error) {
 	return r.ApiService.UpdateQuantityExecute(r)
 }
 
@@ -363,21 +362,21 @@ UpdateQuantity Method for UpdateQuantity
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUpdateQuantityRequest
 */
-func (a *ShoppingCartApiService) UpdateQuantity(ctx _context.Context) ApiUpdateQuantityRequest {
-	return ApiUpdateQuantityRequest{
+func (a *ShoppingCartApiService) UpdateQuantity(ctx _context.Context) *ApiUpdateQuantityRequest {
+	return &ApiUpdateQuantityRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 //  @return RemoteShopcartResponse
-func (a *ShoppingCartApiService) UpdateQuantityExecute(r ApiUpdateQuantityRequest) (RemoteShopcartResponse, *_nethttp.Response, error) {
+func (a *ShoppingCartApiService) UpdateQuantityExecute(r *ApiUpdateQuantityRequest) (RemoteShopcartResponse, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  RemoteShopcartResponse
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue RemoteShopcartResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ShoppingCartApiService.UpdateQuantity")

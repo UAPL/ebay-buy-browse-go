@@ -28,31 +28,31 @@ var (
 type ItemApiService service
 
 type ApiCheckCompatibilityRequest struct {
-	ctx _context.Context
-	ApiService *ItemApiService
-	itemId string
-	xEBAYCMARKETPLACEID *string
+	ctx                  _context.Context
+	ApiService           *ItemApiService
+	itemId               string
+	xEBAYCMARKETPLACEID  *string
 	compatibilityPayload *CompatibilityPayload
 }
 
 // The ID of the eBay marketplace you want to use. &lt;b&gt; Note: &lt;/b&gt; This value is case sensitive.&lt;br /&gt;&lt;br /&gt;For example: &lt;br /&gt;&amp;nbsp;&amp;nbsp;&lt;code&gt;X-EBAY-C-MARKETPLACE-ID &#x3D; EBAY_US&lt;/code&gt;  &lt;br /&gt;&lt;br /&gt; For a list of supported sites see, &lt;a href&#x3D;\&quot;/api-docs/buy/browse/overview.html#API\&quot;&gt;API Restrictions&lt;/a&gt;.
-func (r ApiCheckCompatibilityRequest) XEBAYCMARKETPLACEID(xEBAYCMARKETPLACEID string) ApiCheckCompatibilityRequest {
+func (r *ApiCheckCompatibilityRequest) XEBAYCMARKETPLACEID(xEBAYCMARKETPLACEID string) *ApiCheckCompatibilityRequest {
 	r.xEBAYCMARKETPLACEID = &xEBAYCMARKETPLACEID
 	return r
 }
-func (r ApiCheckCompatibilityRequest) CompatibilityPayload(compatibilityPayload CompatibilityPayload) ApiCheckCompatibilityRequest {
+func (r *ApiCheckCompatibilityRequest) CompatibilityPayload(compatibilityPayload CompatibilityPayload) *ApiCheckCompatibilityRequest {
 	r.compatibilityPayload = &compatibilityPayload
 	return r
 }
 
-func (r ApiCheckCompatibilityRequest) Execute() (CompatibilityResponse, *_nethttp.Response, error) {
+func (r *ApiCheckCompatibilityRequest) Execute() (CompatibilityResponse, *_nethttp.Response, error) {
 	return r.ApiService.CheckCompatibilityExecute(r)
 }
 
 /*
 CheckCompatibility Method for CheckCompatibility
 
-This method checks if a product is compatible with the specified item. You can use this method to check the compatibility of cars, trucks, and motorcycles with a specific part listed on eBay. <br /><br />For example, to check the compatibility of a part, you pass in the item ID of the part as a URI parameter and specify all the attributes used to define a specific car in the <b> compatibilityProperties</b> container. If the call is successful, the response will be <b> COMPATIBLE</b>, <b> NOT_COMPATIBLE</b>, or <b> UNDETERMINED</b>. See <a href="/api-docs/buy/browse/resources/item/methods/checkCompatibility#response.compatibilityStatus">compatibilityStatus</a> for details.   <br /><br /> <span class="tablenote"><b> Note: </b> The only products supported are cars, trucks, and motorcycles. </span><p>  To find the attributes and values for a specific marketplace, you can use the compatibility methods in the <a href="/api-docs/commerce/taxonomy/resources/methods">Taxonomy API</a>. You can use this data to create menus to help buyers specify the product, such as their car.</p> <p> For more details and a list of the required attributes for the US marketplace that describe motor vehicles, see <a href="/api-docs/buy/static/api-browse.html#Check">Check compatibility</a> in the Buy Integration Guide</a>.</p>   <p>For an example, see the <a href="/api-docs/buy/browse/resources/item/methods/checkCompatibility#h2-samples">Samples</a> section. </p>    <h3>URLs for this method</h3>  <p><b> Production URL: </b> <code>https://api.ebay.com/buy/browse/v1/item/{item_id}/check_compatibility</code> </p>         <p><span class="tablenote"><b> Note: </b> This method is supported only on Production. </span></p>         <h3><b> Restrictions </b></h3> <p>For a list of supported sites and other restrictions, see <a href="/api-docs/buy/browse/overview.html#API">API Restrictions</a>.</p> 
+This method checks if a product is compatible with the specified item. You can use this method to check the compatibility of cars, trucks, and motorcycles with a specific part listed on eBay. <br /><br />For example, to check the compatibility of a part, you pass in the item ID of the part as a URI parameter and specify all the attributes used to define a specific car in the <b> compatibilityProperties</b> container. If the call is successful, the response will be <b> COMPATIBLE</b>, <b> NOT_COMPATIBLE</b>, or <b> UNDETERMINED</b>. See <a href="/api-docs/buy/browse/resources/item/methods/checkCompatibility#response.compatibilityStatus">compatibilityStatus</a> for details.   <br /><br /> <span class="tablenote"><b> Note: </b> The only products supported are cars, trucks, and motorcycles. </span><p>  To find the attributes and values for a specific marketplace, you can use the compatibility methods in the <a href="/api-docs/commerce/taxonomy/resources/methods">Taxonomy API</a>. You can use this data to create menus to help buyers specify the product, such as their car.</p> <p> For more details and a list of the required attributes for the US marketplace that describe motor vehicles, see <a href="/api-docs/buy/static/api-browse.html#Check">Check compatibility</a> in the Buy Integration Guide</a>.</p>   <p>For an example, see the <a href="/api-docs/buy/browse/resources/item/methods/checkCompatibility#h2-samples">Samples</a> section. </p>    <h3>URLs for this method</h3>  <p><b> Production URL: </b> <code>https://api.ebay.com/buy/browse/v1/item/{item_id}/check_compatibility</code> </p>         <p><span class="tablenote"><b> Note: </b> This method is supported only on Production. </span></p>         <h3><b> Restrictions </b></h3> <p>For a list of supported sites and other restrictions, see <a href="/api-docs/buy/browse/overview.html#API">API Restrictions</a>.</p>
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param itemId The eBay RESTful identifier of an item (such as a part you want to check). This ID is returned by the <b> Browse</b> and <b> Feed</b> API methods.  <br /><br /> <b> RESTful Item ID Format: </b><code>v1</code>|<code><i>#</i></code>|<code><i>#</i></code> <br />For example: <code>v1|2**********2|0</code> or <code>v1|1**********2|4**********2</code> <br /><br />For more information about item ID for RESTful APIs, see the <a href=\"/api-docs/buy/static/api-browse.html#Legacy\">Legacy API compatibility</a> section of the <i>Buy APIs Overview</i>.
@@ -61,19 +61,19 @@ This method checks if a product is compatible with the specified item. You can u
 func (a *ItemApiService) CheckCompatibility(ctx _context.Context, itemId string) ApiCheckCompatibilityRequest {
 	return ApiCheckCompatibilityRequest{
 		ApiService: a,
-		ctx: ctx,
-		itemId: itemId,
+		ctx:        ctx,
+		itemId:     itemId,
 	}
 }
 
 // Execute executes the request
 //  @return CompatibilityResponse
-func (a *ItemApiService) CheckCompatibilityExecute(r ApiCheckCompatibilityRequest) (CompatibilityResponse, *_nethttp.Response, error) {
+func (a *ItemApiService) CheckCompatibilityExecute(r *ApiCheckCompatibilityRequest) (CompatibilityResponse, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  CompatibilityResponse
+		localVarHTTPMethod  = _nethttp.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue CompatibilityResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemApiService.CheckCompatibility")
@@ -149,19 +149,19 @@ func (a *ItemApiService) CheckCompatibilityExecute(r ApiCheckCompatibilityReques
 }
 
 type ApiGetItemRequest struct {
-	ctx _context.Context
-	ApiService *ItemApiService
-	itemId string
+	ctx         _context.Context
+	ApiService  *ItemApiService
+	itemId      string
 	fieldgroups *string
 }
 
 // This parameter lets you control what is returned in the response. If you do not set this field, the method returns all the details of the item.   &lt;br /&gt; &lt;br /&gt; &lt;b&gt; Valid Values: &lt;/b&gt; &lt;ul&gt;  &lt;li&gt; &lt;b&gt; PRODUCT&lt;/b&gt; - This adds the &lt;code&gt;additionalImages&lt;/code&gt;, &lt;code&gt;additionalProductIdentities&lt;/code&gt;, &lt;code&gt;aspectGroups&lt;/code&gt;, &lt;code&gt;description&lt;/code&gt;, &lt;code&gt;gtins&lt;/code&gt;, &lt;code&gt;image&lt;/code&gt;, and &lt;code&gt;title&lt;/code&gt; product fields to the response, which describe the product associated with the item. See &lt;a href&#x3D;\&quot;/api-docs/buy/browse/resources/item/methods/getItem#response.product\&quot;&gt;Product&lt;/a&gt; for more information about these fields.&lt;/li&gt;          &lt;li&gt;&lt;b&gt; COMPACT&lt;/b&gt; -  This returns only the following fields, which let you quickly check if the availability or price of the item has changed, if the item has been revised by the seller, or if an item&#39;s top-rated plus status has changed for items you have stored.  &lt;ul&gt; &lt;li&gt; &lt;b&gt; itemId&lt;/b&gt; - The identifier of the item.&lt;/li&gt; &lt;li&gt;&lt;b&gt;bidCount&lt;/b&gt; - This integer value indicates the total number of bids that have been placed against an auction item.&lt;/li&gt; &lt;li&gt;&lt;b&gt;currentBidPrice&lt;/b&gt; - This container shows the current highest bid for an auction item. This container will only be returned for auction items.&lt;/li&gt;  &lt;li&gt;&lt;b&gt;eligibleForInlineCheckout&lt;/b&gt; - This parameter returns items based on whether or not the items can be purchased using the Buy &lt;a href&#x3D;\&quot;/api-docs/buy/order/resources/methods\&quot;&gt;Order API&lt;/a&gt;. &lt;ul&gt; &lt;li&gt;If the value of this field is &lt;code&gt;true&lt;/code&gt;, this indicates that the item can be purchased using the &lt;b&gt; Order API&lt;/b&gt;. &lt;/li&gt;  &lt;li&gt;If the value of this field is &lt;code&gt;false&lt;/code&gt;, this indicates that the item cannot be purchased using the &lt;b&gt; Order API&lt;/b&gt; and must be purchased on the eBay site.&lt;/li&gt; &lt;/ul&gt; &lt;li&gt;&lt;b&gt; estimatedAvailabilities&lt;/b&gt; -  Returns the item availability information, which is based on the item&#39;s quantity. &lt;b&gt; Note:&lt;/b&gt; Changes in quantity are not tracked by &lt;b&gt;sellerItemRevision&lt;/b&gt;.&lt;/li&gt; &lt;li&gt;&lt;b&gt;itemAffiliateWebURL&lt;/b&gt; - The URL of the View Item page of the item, which includes the affiliate tracking ID. This field is only returned if the eBay partner enables affiliate tracking for the item by including the &lt;code&gt;X-EBAY-C-ENDUSERCTX&lt;/code&gt; request header in the method.&lt;/li&gt; &lt;li&gt;&lt;b&gt;itemEndDate&lt;/b&gt; - This is the scheduled end time of the listing.&lt;/li&gt; &lt;li&gt;&lt;b&gt;ItemWebURL&lt;/b&gt; - The URL of the View Item page of the item. This enables you to include a \&quot;Report Item on eBay\&quot; link that takes the buyer to the View Item page on eBay. From there they can report any issues regarding this item to eBay.&lt;/li&gt; &lt;li&gt;&lt;b&gt;legacyItemId&lt;/b&gt; - The unique identifier of the eBay listing that contains the item. This is the traditional/legacy ID that is often seen in the URL of the listing View Item page.&lt;/li&gt; &lt;li&gt;&lt;b&gt;minimumPriceToBid&lt;/b&gt; - This container shows the minimum bid amount that would be accepted as a qualifying bid in an auction listing. This container will only be returned for auction items.&lt;/li&gt; &lt;li&gt;&lt;b&gt;price&lt;/b&gt; - This is tracked by the revision ID but is returned here to enable you to quickly verify the price of the item.&lt;/li&gt; &lt;li&gt;&lt;b&gt;priorityListing&lt;/b&gt; - This field is returned as &lt;code&gt;true&lt;/code&gt; if the listing is part of a Promoted Listing campaign. Promoted Listings are available to Above Standard and Top Rated sellers with recent sales activity.&lt;/li&gt; &lt;li&gt;&lt;b&gt;reservePriceMet&lt;/b&gt; - This field indicates whether or not an auction&#39;s reserve price (if set by the seller) has been met yet. This field will only be returned for auction items.&lt;/li&gt; &lt;li&gt;&lt;b&gt; sellerItemRevision&lt;/b&gt; - An identifier generated/incremented when a seller revises the item. The following are the two types of item revisions:   &lt;ul&gt;  &lt;li&gt;&lt;b&gt; Seller changes&lt;/b&gt;, such as changing the title&lt;/li&gt;  &lt;li&gt;  &lt;b&gt; eBay system changes&lt;/b&gt;, such as changing the quantity when an item is purchased.&lt;/li&gt;  &lt;/ul&gt; This ID is changed &lt;em&gt;only&lt;/em&gt; when the seller makes a change to the item. This means you cannot use this value to determine if the quantity has changed. To check if the quantity has changed, use &lt;b&gt; estimatedAvailabilities.&lt;/b&gt;&lt;/li&gt; &lt;li&gt;&lt;b&gt;taxes&lt;/b&gt; - A container for the tax information for the item, such as the tax jurisdiction, the tax percentage, and the tax type.&lt;/li&gt; &lt;li&gt;&lt;b&gt; topRatedBuyingExperience&lt;/b&gt; - A boolean value indicating if this item is a top-rated plus item. A change in the item&#39;s top rated plus standing is not tracked by the revision ID. See &lt;a href&#x3D;\&quot;/api-docs/buy/browse/resources/item/methods/getItem#response.topRatedBuyingExperience\&quot;&gt;topRatedBuyingExperience&lt;/a&gt; for more information.&lt;/li&gt; &lt;li&gt;&lt;b&gt;uniqueBidderCount&lt;/b&gt; - This integer value indicates the number of different eBay users who have placed one or more bids on an auction item. This field is only applicable to auction items.&lt;/li&gt;&lt;/ul&gt;    &lt;b&gt; For Example&lt;/b&gt; &lt;br /&gt; &lt;br /&gt;To check if a stored item&#39;s information is current, do following.  &lt;ol&gt;    &lt;li&gt;Pass in the item ID and set &lt;b&gt; fieldgroups&lt;/b&gt; to COMPACT. &lt;br /&gt; &lt;br /&gt;&lt;code&gt;item/v1|4**********8|0?fieldgroups&#x3D;COMPACT&lt;/code&gt; &lt;/li&gt;     &lt;li&gt;Do one of the following:    &lt;ul&gt;     &lt;li&gt;If the &lt;b&gt; sellerItemRevision&lt;/b&gt; field is returned and you &lt;em&gt;haven&#39;t&lt;/em&gt; stored a revision number for this item, record the number and pass in the item ID in the &lt;b&gt; getItem&lt;/b&gt; method to get the latest information.&lt;/li&gt;   &lt;li&gt;If the revision number is different from the value you have stored, update the value and pass in the item ID in the &lt;b&gt; getItem&lt;/b&gt; method to get the latest information.&lt;/li&gt;     &lt;li&gt;If the &lt;b&gt; sellerItemRevision&lt;/b&gt; field is &lt;em&gt;not&lt;/em&gt; returned or has not changed, where needed, update the item information with the information returned in the response.&lt;/li&gt;  &lt;/ul&gt;  &lt;/li&gt; &lt;/ol&gt;&lt;/li&gt; &lt;/ul&gt;  &lt;/ul&gt;    &lt;p&gt;&lt;b&gt; Maximum value: &lt;/b&gt; 1 &lt;br /&gt;If more than one values is specified, the first value will be used.
-func (r ApiGetItemRequest) Fieldgroups(fieldgroups string) ApiGetItemRequest {
+func (r *ApiGetItemRequest) Fieldgroups(fieldgroups string) *ApiGetItemRequest {
 	r.fieldgroups = &fieldgroups
 	return r
 }
 
-func (r ApiGetItemRequest) Execute() (Item, *_nethttp.Response, error) {
+func (r *ApiGetItemRequest) Execute() (Item, *_nethttp.Response, error) {
 	return r.ApiService.GetItemExecute(r)
 }
 
@@ -174,22 +174,22 @@ GetItem Method for GetItem
  @param itemId The eBay RESTful identifier of an item. This ID is returned by the <b> Browse</b> and <b> Feed</b> API methods.  <br /><br /> <b> RESTful Item ID Format: </b><code>v1</code>|<code><i>#</i></code>|<code><i>#</i></code> <br />For example: <code>v1|2**********2|0</code> or <code>v1|1**********2|4**********2</code> <br /><br />For more information about item ID for RESTful APIs, see the <a href=\"/api-docs/buy/static/api-browse.html#Legacy\">Legacy API compatibility</a> section of the <i>Buy APIs Overview</i>.
  @return ApiGetItemRequest
 */
-func (a *ItemApiService) GetItem(ctx _context.Context, itemId string) ApiGetItemRequest {
-	return ApiGetItemRequest{
+func (a *ItemApiService) GetItem(ctx _context.Context, itemId string) *ApiGetItemRequest {
+	return &ApiGetItemRequest{
 		ApiService: a,
-		ctx: ctx,
-		itemId: itemId,
+		ctx:        ctx,
+		itemId:     itemId,
 	}
 }
 
 // Execute executes the request
 //  @return Item
-func (a *ItemApiService) GetItemExecute(r ApiGetItemRequest) (Item, *_nethttp.Response, error) {
+func (a *ItemApiService) GetItemExecute(r *ApiGetItemRequest) (Item, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  Item
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue Item
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemApiService.GetItem")
@@ -262,36 +262,39 @@ func (a *ItemApiService) GetItemExecute(r ApiGetItemRequest) (Item, *_nethttp.Re
 }
 
 type ApiGetItemByLegacyIdRequest struct {
-	ctx _context.Context
-	ApiService *ItemApiService
-	legacyItemId *string
-	fieldgroups *string
-	legacyVariationId *string
+	ctx                _context.Context
+	ApiService         *ItemApiService
+	legacyItemId       *string
+	fieldgroups        *string
+	legacyVariationId  *string
 	legacyVariationSku *string
 }
 
 // Specifies either: &lt;ul&gt; &lt;li&gt;The legacy item ID of an item that is &lt;em&gt;not&lt;/em&gt; part of a group. &lt;/li&gt; &lt;li&gt;The legacy item ID of a group, which is the ID of the \&quot;parent\&quot; of the group of items. &lt;br /&gt; &lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt; &lt;b&gt; Note: &lt;/b&gt; If you pass in a group ID, you must also use the &lt;b&gt; legacy_variation_id&lt;/b&gt; field and pass in the legacy ID of the specific item variation (child ID).&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;  Legacy ids are returned by APIs, such as the &lt;a href&#x3D;\&quot;https://developer.ebay.com/devzone/finding/callref/index.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Finding API&lt;/a&gt;.  &lt;br /&gt;&lt;br /&gt;The following is an example of using the value of the &lt;b&gt; ItemID&lt;/b&gt; field for a specific item from Finding to get the RESTful &lt;b&gt; itemId&lt;/b&gt; value. &lt;br /&gt; &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;code&gt; browse/v1/item/get_item_by_legacy_id?legacy_item_id&#x3D;1**********9  &lt;/code&gt;&lt;br /&gt;&lt;br /&gt;&lt;b&gt; Maximum: &lt;/b&gt; 1
-func (r ApiGetItemByLegacyIdRequest) LegacyItemId(legacyItemId string) ApiGetItemByLegacyIdRequest {
+func (r *ApiGetItemByLegacyIdRequest) LegacyItemId(legacyItemId string) *ApiGetItemByLegacyIdRequest {
 	r.legacyItemId = &legacyItemId
 	return r
 }
+
 // This field lets you control what is returned in the response. If you do not set this field, the method returns all the details of the item. &lt;b&gt; Note&lt;/b&gt;: In this method, the only value supported is &lt;code&gt;PRODUCT&lt;/code&gt;. &lt;p&gt;&lt;b&gt; Valid Values: &lt;/b&gt;&lt;br /&gt;&lt;br /&gt; &lt;b&gt; PRODUCT&lt;/b&gt; - This adds the &lt;code&gt;additionalImages&lt;/code&gt;, &lt;code&gt;additionalProductIdentities&lt;/code&gt;, &lt;code&gt;aspectGroups&lt;/code&gt;, &lt;code&gt;description&lt;/code&gt;, &lt;code&gt;gtins&lt;/code&gt;, &lt;code&gt;image&lt;/code&gt;, and &lt;code&gt;title&lt;/code&gt; fields to the response, which describe the item&#39;s product.  See &lt;a href&#x3D;\&quot;/api-docs/buy/browse/resources/item/methods/getItemByLegacyItem#response.product\&quot;&gt;Product&lt;/a&gt; for more information about these fields. &lt;br /&gt;&lt;br /&gt;Code so that your app gracefully handles any future changes to this list.
-func (r ApiGetItemByLegacyIdRequest) Fieldgroups(fieldgroups string) ApiGetItemByLegacyIdRequest {
+func (r *ApiGetItemByLegacyIdRequest) Fieldgroups(fieldgroups string) *ApiGetItemByLegacyIdRequest {
 	r.fieldgroups = &fieldgroups
 	return r
 }
+
 // Specifies the legacy item ID of a specific item in an item group, such as the red shirt size L. &lt;br /&gt;&lt;br /&gt;Legacy ids are returned by APIs, such as the &lt;a href&#x3D;\&quot;https://developer.ebay.com/devzone/finding/callref/index.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Finding API&lt;/a&gt;.     &lt;br /&gt;&lt;br /&gt;&lt;b&gt; Maximum: &lt;/b&gt; 1 &lt;br /&gt;&lt;b&gt; Requirement: &lt;/b&gt; You must &lt;b&gt; always&lt;/b&gt; pass in the &lt;b&gt; legacy_item_id &lt;/b&gt; with the &lt;b&gt; legacy_variation_id&lt;/b&gt;
-func (r ApiGetItemByLegacyIdRequest) LegacyVariationId(legacyVariationId string) ApiGetItemByLegacyIdRequest {
+func (r *ApiGetItemByLegacyIdRequest) LegacyVariationId(legacyVariationId string) *ApiGetItemByLegacyIdRequest {
 	r.legacyVariationId = &legacyVariationId
 	return r
 }
+
 // Specifics the legacy SKU of the item. SKU are item ids created by the seller. &lt;br /&gt;&lt;br /&gt;Legacy SKUs are returned by eBay the  &lt;a href&#x3D;\&quot;https://developer.ebay.com/Devzone/shopping/docs/CallRef/index.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Shopping API&lt;/a&gt;. &lt;br /&gt;&lt;br /&gt;The following is an example of using the value of the &lt;b&gt; ItemID&lt;/b&gt; and &lt;b&gt; SKU&lt;/b&gt; fields to get the RESTful &lt;b&gt; itemId&lt;/b&gt; value. &lt;br /&gt; &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;code&gt; browse/v1/item/get_item_by_legacy_id?legacy_item_id&#x3D;1**********9&amp;amp;legacy_variation_sku&#x3D;V**********M&lt;/code&gt;&lt;br /&gt;&lt;br /&gt;&lt;b&gt; Maximum: &lt;/b&gt; 1 &lt;br /&gt;&lt;b&gt; Requirement: &lt;/b&gt; You must &lt;b&gt; always&lt;/b&gt; pass in the &lt;b&gt; legacy_item_id &lt;/b&gt; with the &lt;b&gt; legacy_variation_sku&lt;/b&gt;
-func (r ApiGetItemByLegacyIdRequest) LegacyVariationSku(legacyVariationSku string) ApiGetItemByLegacyIdRequest {
+func (r *ApiGetItemByLegacyIdRequest) LegacyVariationSku(legacyVariationSku string) *ApiGetItemByLegacyIdRequest {
 	r.legacyVariationSku = &legacyVariationSku
 	return r
 }
 
-func (r ApiGetItemByLegacyIdRequest) Execute() (Item, *_nethttp.Response, error) {
+func (r *ApiGetItemByLegacyIdRequest) Execute() (Item, *_nethttp.Response, error) {
 	return r.ApiService.GetItemByLegacyIdExecute(r)
 }
 
@@ -303,21 +306,21 @@ GetItemByLegacyId Method for GetItemByLegacyId
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetItemByLegacyIdRequest
 */
-func (a *ItemApiService) GetItemByLegacyId(ctx _context.Context) ApiGetItemByLegacyIdRequest {
-	return ApiGetItemByLegacyIdRequest{
+func (a *ItemApiService) GetItemByLegacyId(ctx _context.Context) *ApiGetItemByLegacyIdRequest {
+	return &ApiGetItemByLegacyIdRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 //  @return Item
-func (a *ItemApiService) GetItemByLegacyIdExecute(r ApiGetItemByLegacyIdRequest) (Item, *_nethttp.Response, error) {
+func (a *ItemApiService) GetItemByLegacyIdExecute(r *ApiGetItemByLegacyIdRequest) (Item, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  Item
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue Item
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemApiService.GetItemByLegacyId")
@@ -399,50 +402,51 @@ func (a *ItemApiService) GetItemByLegacyIdExecute(r ApiGetItemByLegacyIdRequest)
 }
 
 type ApiGetItemsRequest struct {
-	ctx _context.Context
-	ApiService *ItemApiService
-	itemIds *string
+	ctx          _context.Context
+	ApiService   *ItemApiService
+	itemIds      *string
 	itemGroupIds *string
 }
 
 // A list of item IDs. Item IDs are the eBay RESTful identifier of items. &lt;br&gt;&lt;br&gt;&lt;b&gt; RESTful Item ID Format: &lt;/b&gt;&lt;code&gt;v1&lt;/code&gt;|&lt;code&gt;&lt;i&gt;#&lt;/i&gt;&lt;/code&gt;|&lt;code&gt;&lt;i&gt;#&lt;/i&gt;&lt;/code&gt;&lt;br&gt;For example: &lt;code&gt;v1|2**********2|0&lt;/code&gt; or &lt;code&gt;v1|1**********2|4**********2&lt;/code&gt; &lt;br&gt;&lt;br&gt;In any given request, either item_ids or item_group_ids can be retrieved. Attempting to retrieve both will result in an error. &lt;br&gt;&lt;br&gt; In a request, multiple item_ids can be passed as comma separated values.&lt;br&gt;&lt;br&gt;&lt;b&gt; Maximum allowed itemIDs: &lt;/b&gt; 20 &lt;br&gt;&lt;br&gt;For more information about item IDs for RESTful APIs, see the &lt;a href&#x3D;\&quot;/api-docs/buy/static/api-browse.html#Legacy\&quot;&gt;Legacy API compatibility&lt;/a&gt; section of the &lt;i&gt;Buy APIs Overview&lt;/i&gt;.
-func (r ApiGetItemsRequest) ItemIds(itemIds string) ApiGetItemsRequest {
+func (r *ApiGetItemsRequest) ItemIds(itemIds string) *ApiGetItemsRequest {
 	r.itemIds = &itemIds
 	return r
 }
+
 // A list of item group IDs. Item group IDs are the eBay RESTful identifier of item groups. &lt;br&gt;&lt;br&gt;&lt;b&gt; RESTful Group Item ID Format: &lt;/b&gt;&lt;code&gt;############&lt;/code&gt;&lt;br&gt;For example: &lt;code&gt;3**********9&lt;/code&gt;&lt;br&gt;&lt;br&gt;In any given request, either item_ids or item_group_ids can be retrieved. Attempting to retrieve both will result in an error.&lt;br&gt;&lt;br&gt;In a request, multiple item_group_ids can be passed as comma separated values.&lt;br&gt;&lt;br&gt;&lt;b&gt; Maximum allowed itemGroupIDs: &lt;/b&gt; 10 &lt;br&gt;&lt;br&gt;
-func (r ApiGetItemsRequest) ItemGroupIds(itemGroupIds string) ApiGetItemsRequest {
+func (r *ApiGetItemsRequest) ItemGroupIds(itemGroupIds string) *ApiGetItemsRequest {
 	r.itemGroupIds = &itemGroupIds
 	return r
 }
 
-func (r ApiGetItemsRequest) Execute() (Items, *_nethttp.Response, error) {
+func (r *ApiGetItemsRequest) Execute() (Items, *_nethttp.Response, error) {
 	return r.ApiService.GetItemsExecute(r)
 }
 
 /*
 GetItems Method for GetItems
 
-This method retrieves the details of specific items that the buyer needs to make a purchasing decision.  <br><br><span class="tablenote"> <b>Note:</b> This is a <a href="https://developer.ebay.com/api-docs/static/versioning.html#limited" target="_blank"> <img src="/cms/img/docs/partners-api.svg" class="legend-icon partners-icon" title="Limited Release"  alt="Limited Release" />(Limited Release)</a> available only to select Partners. <br><br>For this method, only the following fields are returned: <code>bidCount</code>, <code>currentBidPrice</code>, <code>eligibleForInlineCheckout</code>, <code>enabledForGuestCheckout</code>, <code>estimatedAvailabilities</code>, <code>itemAffiliateWebUrl</code>, <code>itemId</code>, <code>itemWebUrl</code>, <code>legacyItemId</code>, <code>minimumPriceToBid</code>, <code>price</code>, <code>priorityListing</code>, <code>reservePriceMet</code>, <code>sellerItemRevision</code>, <code>taxes</code>, <code>topRatedBuyingExperience</code>, and <code>uniqueBidderCount</code>.</span> <h3>URLs for this method</h3>           <p><ul>            <li><b> Production URL: </b> <code>https://api.ebay.com/buy/browse/v1/item?</code></li>            <li><b> Sandbox URL:  </b><code>https://api.sandbox.ebay.com/buy/browse/v1/item?</code></li>           </ul>    </p>            <h3><b> Request headers</b></h3> This method uses the  <b>X-EBAY-C-ENDUSERCTX</b> request header to support revenue sharing for eBay Partner Networks and to improve the accuracy of shipping and delivery time estimations.   For details see, <a href="/api-docs/buy/static/api-browse.html#Headers">Request headers</a> in the Buying Integration Guide.   <h3><b> Restrictions </b></h3> <p>For a list of supported sites and other restrictions, see <a href="/api-docs/buy/browse/overview.html#API">API Restrictions</a>.</p> <span class="tablenote"><b>eBay Partner Network:</b> In order to be commissioned for your sales, you must use the URL returned in the itemAffiliateWebUrl field to forward your buyer to the ebay.com site. 
+This method retrieves the details of specific items that the buyer needs to make a purchasing decision.  <br><br><span class="tablenote"> <b>Note:</b> This is a <a href="https://developer.ebay.com/api-docs/static/versioning.html#limited" target="_blank"> <img src="/cms/img/docs/partners-api.svg" class="legend-icon partners-icon" title="Limited Release"  alt="Limited Release" />(Limited Release)</a> available only to select Partners. <br><br>For this method, only the following fields are returned: <code>bidCount</code>, <code>currentBidPrice</code>, <code>eligibleForInlineCheckout</code>, <code>enabledForGuestCheckout</code>, <code>estimatedAvailabilities</code>, <code>itemAffiliateWebUrl</code>, <code>itemId</code>, <code>itemWebUrl</code>, <code>legacyItemId</code>, <code>minimumPriceToBid</code>, <code>price</code>, <code>priorityListing</code>, <code>reservePriceMet</code>, <code>sellerItemRevision</code>, <code>taxes</code>, <code>topRatedBuyingExperience</code>, and <code>uniqueBidderCount</code>.</span> <h3>URLs for this method</h3>           <p><ul>            <li><b> Production URL: </b> <code>https://api.ebay.com/buy/browse/v1/item?</code></li>            <li><b> Sandbox URL:  </b><code>https://api.sandbox.ebay.com/buy/browse/v1/item?</code></li>           </ul>    </p>            <h3><b> Request headers</b></h3> This method uses the  <b>X-EBAY-C-ENDUSERCTX</b> request header to support revenue sharing for eBay Partner Networks and to improve the accuracy of shipping and delivery time estimations.   For details see, <a href="/api-docs/buy/static/api-browse.html#Headers">Request headers</a> in the Buying Integration Guide.   <h3><b> Restrictions </b></h3> <p>For a list of supported sites and other restrictions, see <a href="/api-docs/buy/browse/overview.html#API">API Restrictions</a>.</p> <span class="tablenote"><b>eBay Partner Network:</b> In order to be commissioned for your sales, you must use the URL returned in the itemAffiliateWebUrl field to forward your buyer to the ebay.com site.
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetItemsRequest
 */
-func (a *ItemApiService) GetItems(ctx _context.Context) ApiGetItemsRequest {
-	return ApiGetItemsRequest{
+func (a *ItemApiService) GetItems(ctx _context.Context) *ApiGetItemsRequest {
+	return &ApiGetItemsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 //  @return Items
-func (a *ItemApiService) GetItemsExecute(r ApiGetItemsRequest) (Items, *_nethttp.Response, error) {
+func (a *ItemApiService) GetItemsExecute(r *ApiGetItemsRequest) (Items, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  Items
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue Items
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemApiService.GetItems")
@@ -517,44 +521,44 @@ func (a *ItemApiService) GetItemsExecute(r ApiGetItemsRequest) (Items, *_nethttp
 }
 
 type ApiGetItemsByItemGroupRequest struct {
-	ctx _context.Context
-	ApiService *ItemApiService
+	ctx         _context.Context
+	ApiService  *ItemApiService
 	itemGroupId *string
 }
 
 // Identifier of the item group to return.  An item group is an item that has various aspect differences, such as color, size, storage capacity, etc. &lt;/p&gt; &lt;p&gt;This ID is returned in the &lt;b&gt; itemGroupHref&lt;/b&gt; field of the &lt;a href&#x3D;\&quot;/api-docs/buy/browse/resources/item_summary/methods/search\&quot;&gt;search&lt;/a&gt; and &lt;a href&#x3D;\&quot;/api-docs/buy/browse/resources/item/methods/getItem\&quot;&gt;getItem&lt;/a&gt; methods. &lt;br /&gt;&lt;br /&gt;&lt;b&gt; For Example: &lt;/b&gt;&lt;code&gt; https://api.ebay.com/buy/browse/v1/item/get_items_by_item_group?item_group_id&#x3D;3**********6&lt;/code&gt;
-func (r ApiGetItemsByItemGroupRequest) ItemGroupId(itemGroupId string) ApiGetItemsByItemGroupRequest {
+func (r *ApiGetItemsByItemGroupRequest) ItemGroupId(itemGroupId string) *ApiGetItemsByItemGroupRequest {
 	r.itemGroupId = &itemGroupId
 	return r
 }
 
-func (r ApiGetItemsByItemGroupRequest) Execute() (ItemGroup, *_nethttp.Response, error) {
+func (r *ApiGetItemsByItemGroupRequest) Execute() (ItemGroup, *_nethttp.Response, error) {
 	return r.ApiService.GetItemsByItemGroupExecute(r)
 }
 
 /*
 GetItemsByItemGroup Method for GetItemsByItemGroup
 
- <p>This method retrieves the details of the individual items in an item group. An item group is an item that has various aspect differences, such as color, size, storage capacity, etc. </p>  <p>You pass in the item group ID as a URI parameter. You use this method to show the item details of items with multiple aspects, such as color, size, storage capacity, etc.  </p>  <p>This method returns two main containers;  <b> items</b> and <b> commonDescriptions</b>. The <b> items</b> container has an array of  containers with the details of each item in the group. The <b> commonDescriptions</b> container has an array of containers for a description and the item ids of all the items that have this exact description. Because items within an item group often have the same description, this decreases the size of the response. </p>         <h3>URLs for this method</h3>           <p><ul>            <li><b> Production URL: </b> <code>https://api.ebay.com/buy/browse/v1/item/get_items_by_item_group?</code></li>            <li><b> Sandbox URL:  </b><code>https://api.sandbox.ebay.com/buy/browse/v1/item/get_items_by_item_group?</code></li>           </ul>    </p>            <h3><b> Request headers</b></h3> This method uses the  <b>X-EBAY-C-ENDUSERCTX</b> request header to support revenue sharing for eBay Partner Networks and to improve the accuracy of shipping and delivery time estimations.   For details see, <a href="/api-docs/buy/static/api-browse.html#Headers">Request headers</a> in the Buying Integration Guide.   <h3><b> Restrictions </b></h3> <p>For a list of supported sites and other restrictions, see <a href="/api-docs/buy/browse/overview.html#API">API Restrictions</a>.</p> <span class="tablenote"><b>eBay Partner Network: </b> In order to be commissioned for your sales, you must use the URL returned in the <code>itemAffiliateWebUrl</code> field to forward your buyer to the ebay.com site. </span> 
+ <p>This method retrieves the details of the individual items in an item group. An item group is an item that has various aspect differences, such as color, size, storage capacity, etc. </p>  <p>You pass in the item group ID as a URI parameter. You use this method to show the item details of items with multiple aspects, such as color, size, storage capacity, etc.  </p>  <p>This method returns two main containers;  <b> items</b> and <b> commonDescriptions</b>. The <b> items</b> container has an array of  containers with the details of each item in the group. The <b> commonDescriptions</b> container has an array of containers for a description and the item ids of all the items that have this exact description. Because items within an item group often have the same description, this decreases the size of the response. </p>         <h3>URLs for this method</h3>           <p><ul>            <li><b> Production URL: </b> <code>https://api.ebay.com/buy/browse/v1/item/get_items_by_item_group?</code></li>            <li><b> Sandbox URL:  </b><code>https://api.sandbox.ebay.com/buy/browse/v1/item/get_items_by_item_group?</code></li>           </ul>    </p>            <h3><b> Request headers</b></h3> This method uses the  <b>X-EBAY-C-ENDUSERCTX</b> request header to support revenue sharing for eBay Partner Networks and to improve the accuracy of shipping and delivery time estimations.   For details see, <a href="/api-docs/buy/static/api-browse.html#Headers">Request headers</a> in the Buying Integration Guide.   <h3><b> Restrictions </b></h3> <p>For a list of supported sites and other restrictions, see <a href="/api-docs/buy/browse/overview.html#API">API Restrictions</a>.</p> <span class="tablenote"><b>eBay Partner Network: </b> In order to be commissioned for your sales, you must use the URL returned in the <code>itemAffiliateWebUrl</code> field to forward your buyer to the ebay.com site. </span>
 
  @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetItemsByItemGroupRequest
 */
-func (a *ItemApiService) GetItemsByItemGroup(ctx _context.Context) ApiGetItemsByItemGroupRequest {
-	return ApiGetItemsByItemGroupRequest{
+func (a *ItemApiService) GetItemsByItemGroup(ctx _context.Context) *ApiGetItemsByItemGroupRequest {
+	return &ApiGetItemsByItemGroupRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 //  @return ItemGroup
-func (a *ItemApiService) GetItemsByItemGroupExecute(r ApiGetItemsByItemGroupRequest) (ItemGroup, *_nethttp.Response, error) {
+func (a *ItemApiService) GetItemsByItemGroupExecute(r *ApiGetItemsByItemGroupRequest) (ItemGroup, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  ItemGroup
+		localVarHTTPMethod  = _nethttp.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue ItemGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemApiService.GetItemsByItemGroup")
