@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Category** | Pointer to **string** | This string value indicates the error category. There are three categories of errors: request errors, application errors, and system errors.  | [optional] 
+**Category** | Pointer to **string** | This string value indicates the error category. There are three categories of errors: &lt;i&gt;request errors&lt;/i&gt;, &lt;i&gt;application errors&lt;/i&gt;, and &lt;i&gt;system errors&lt;/i&gt;. | [optional] 
 **Domain** | Pointer to **string** | The name of the primary system where the error occurred. This is relevant for application errors. | [optional] 
 **ErrorId** | Pointer to **int32** | A unique code that identifies the particular error or warning that occurred. Your application can use error codes as identifiers in your customized error-handling algorithms. | [optional] 
 **InputRefIds** | Pointer to **[]string** | An array of reference IDs that identify the specific request elements most closely associated to the error or warning, if any. | [optional] 

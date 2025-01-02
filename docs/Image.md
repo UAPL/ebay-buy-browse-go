@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Height** | Pointer to **int32** | Reserved for future use.  | [optional] 
+**Height** | Pointer to **int32** | Reserved for future use. | [optional] 
 **ImageUrl** | Pointer to **string** | The URL of the image. | [optional] 
-**Width** | Pointer to **int32** | Reserved for future use.  | [optional] 
+**Width** | Pointer to **int32** | Reserved for future use. | [optional] 
 
 ## Methods
 

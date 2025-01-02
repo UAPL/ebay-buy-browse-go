@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CategoryId** | Pointer to **string** | The identifier of the category. | [optional] 
-**CategoryName** | Pointer to **string** | The name of the category, such as Baby &amp; Toddler Clothing. | [optional] 
+**CategoryId** | Pointer to **string** | The unique identifier of the category. | [optional] 
+**CategoryName** | Pointer to **string** | The name of the category, such as &lt;b&gt;Baby &amp;amp; Toddler Clothing&lt;/b&gt;. | [optional] 
 **MatchCount** | Pointer to **int32** | The number of items in this category. | [optional] 
 **RefinementHref** | Pointer to **string** | The HATEOAS reference of this category. | [optional] 
 

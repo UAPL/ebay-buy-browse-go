@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **SellerProvidedLegalAddress** | Pointer to [**LegalAddress**](LegalAddress.md) |  | [optional] 
 **TermsOfService** | Pointer to **string** | This is a free-form string created by the seller. This is the seller&#39;s terms or condition, which is in addition to the seller&#39;s return policies. | [optional] 
 **VatDetails** | Pointer to [**[]VatDetail**](VatDetail.md) | An array of the seller&#39;s VAT (value added tax) IDs and the issuing country. VAT is a tax added by some European countries. | [optional] 
+**EconomicOperator** | Pointer to [**EconomicOperator**](EconomicOperator.md) |  | [optional] 
+**WeeeNumber** | Pointer to **string** | The Waste Electrical and Electronic Equipment (WEEE) registration number required for any seller to place electrical and electronic equipment on the market in Germany. This manufacturer number is assigned to the first distributors of electrical and electronic equipment and comprises a country code and an 8-digit sequence of digits (e.g. “WEEE Reg. No. DE 12345678”). | [optional] 
 
 ## Methods
 
@@ -309,6 +311,56 @@ SetVatDetails sets VatDetails field to given value.
 `func (o *SellerLegalInfo) HasVatDetails() bool`
 
 HasVatDetails returns a boolean if a field has been set.
+
+### GetEconomicOperator
+
+`func (o *SellerLegalInfo) GetEconomicOperator() EconomicOperator`
+
+GetEconomicOperator returns the EconomicOperator field if non-nil, zero value otherwise.
+
+### GetEconomicOperatorOk
+
+`func (o *SellerLegalInfo) GetEconomicOperatorOk() (*EconomicOperator, bool)`
+
+GetEconomicOperatorOk returns a tuple with the EconomicOperator field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEconomicOperator
+
+`func (o *SellerLegalInfo) SetEconomicOperator(v EconomicOperator)`
+
+SetEconomicOperator sets EconomicOperator field to given value.
+
+### HasEconomicOperator
+
+`func (o *SellerLegalInfo) HasEconomicOperator() bool`
+
+HasEconomicOperator returns a boolean if a field has been set.
+
+### GetWeeeNumber
+
+`func (o *SellerLegalInfo) GetWeeeNumber() string`
+
+GetWeeeNumber returns the WeeeNumber field if non-nil, zero value otherwise.
+
+### GetWeeeNumberOk
+
+`func (o *SellerLegalInfo) GetWeeeNumberOk() (*string, bool)`
+
+GetWeeeNumberOk returns a tuple with the WeeeNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWeeeNumber
+
+`func (o *SellerLegalInfo) SetWeeeNumber(v string)`
+
+SetWeeeNumber sets WeeeNumber field to given value.
+
+### HasWeeeNumber
+
+`func (o *SellerLegalInfo) HasWeeeNumber() bool`
+
+HasWeeeNumber returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

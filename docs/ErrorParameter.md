@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | This is the name of input field that caused an issue with the call request. | [optional] 
-**Value** | Pointer to **string** | This is the actual value that was passed in for the element specified in the &lt;b&gt; name&lt;/b&gt;  field. | [optional] 
+**Value** | Pointer to **string** | This is the actual value that was passed in for the element specified in the &lt;code&gt;name&lt;/code&gt; field. | [optional] 
 
 ## Methods
 

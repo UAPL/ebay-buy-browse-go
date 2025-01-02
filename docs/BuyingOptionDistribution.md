@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BuyingOption** | Pointer to **string** | The container that returns the buying option type. This will be AUCTION or FIXED_PRICE or both. For details, see &lt;a href&#x3D;\&quot;/api-docs/buy/browse/resources/item_summary/methods/search#response.itemSummaries.buyingOptions\&quot;&gt;buyingOptions&lt;/a&gt;. | [optional] 
+**BuyingOption** | Pointer to **string** | The container that returns the buying option type. This will be AUCTION, FIXED_PRICE, CLASSIFIED_AD, or a combination of these options. For details, see &lt;a href&#x3D;\&quot;/api-docs/buy/browse/resources/item_summary/methods/search#response.itemSummaries.buyingOptions\&quot;&gt;buyingOptions&lt;/a&gt;. | [optional] 
 **MatchCount** | Pointer to **int32** | The number of items having this buying option. | [optional] 
 **RefinementHref** | Pointer to **string** | The HATEOAS reference for this buying option. | [optional] 
 

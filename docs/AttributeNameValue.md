@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | The name of the product attribute, such as Make, Model, Year, etc. | [optional] 
-**Value** | Pointer to **string** | The value for the &lt;b&gt; name&lt;/b&gt; attribute, such as BMW, R1200GS, 2011, etc. | [optional] 
+**Name** | Pointer to **string** | The name of the product attribute, such as &lt;i&gt;Make&lt;/i&gt;, &lt;i&gt;Model&lt;/i&gt;, &lt;i&gt;Year&lt;/i&gt;, etc. | [optional] 
+**Value** | Pointer to **string** | The value for the &lt;code&gt;name&lt;/code&gt; attribute, such as &lt;i&gt;BMW&lt;/i&gt;, &lt;i&gt;R1200GS&lt;/i&gt;, &lt;i&gt;2011&lt;/i&gt;, etc. | [optional] 
 
 ## Methods
 

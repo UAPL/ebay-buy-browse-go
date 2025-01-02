@@ -5,40 +5,47 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdditionalImages** | Pointer to [**[]Image**](Image.md) | An array of containers with the URLs for the images that are in addition to the primary image.  The primary image is returned in the &lt;b&gt; image.imageUrl&lt;/b&gt; field. | [optional] 
-**AdultOnly** | Pointer to **bool** | This indicates if the item is for  adults only. For more information about adult-only items on eBay, see &lt;a href&#x3D;\&quot;https://pages.ebay.com/help/policies/adult-only.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Adult items policy&lt;/a&gt; for sellers and &lt;a href&#x3D;\&quot;https://www.ebay.com/help/terms-conditions/default/searching-adult-items?id&#x3D;4661\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Adult-Only items on eBay&lt;/a&gt; for buyers. | [optional] 
+**AddonServices** | Pointer to [**[]AddonService**](AddonService.md) | A list of add-on services that may be selected for the item or that may apply automatically. | [optional] 
+**AdultOnly** | Pointer to **bool** | This indicates if the item is for  adults only. For more information about adult-only items on eBay, see &lt;a href&#x3D;\&quot;https://pages.ebay.com/help/policies/adult-only.html \&quot; target&#x3D;\&quot;_blank\&quot;&gt;Adult items policy&lt;/a&gt; for sellers and &lt;a href&#x3D;\&quot;https://www.ebay.com/help/terms-conditions/default/searching-adult-items?id&#x3D;4661\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Adult-Only items on eBay&lt;/a&gt; for buyers. | [optional] 
 **AgeGroup** | Pointer to **string** | (Primary Item Aspect) The age group for which the product is recommended. For example, newborn, infant, toddler, kids, adult, etc. All the item aspects, including this aspect, are returned in the &lt;b&gt; localizedAspects&lt;/b&gt; container. | [optional] 
 **AuthenticityGuarantee** | Pointer to [**AuthenticityGuaranteeProgram**](AuthenticityGuaranteeProgram.md) |  | [optional] 
 **AuthenticityVerification** | Pointer to [**AuthenticityVerificationProgram**](AuthenticityVerificationProgram.md) |  | [optional] 
 **AvailableCoupons** | Pointer to [**[]AvailableCoupon**](AvailableCoupon.md) | A list of available coupons for the item. | [optional] 
 **BidCount** | Pointer to **int32** | This integer value indicates the total number of bids that have been placed against an auction item. This field is returned only for auction items. | [optional] 
 **Brand** | Pointer to **string** | (Primary Item Aspect) The name brand of the item, such as Nike, Apple, etc.  All the item aspects, including this aspect, are returned in the &lt;b&gt; localizedAspects&lt;/b&gt; container. | [optional] 
-**BuyingOptions** | Pointer to **[]string** | A comma separated list of all the purchase options available for the item. The values returned are:  &lt;ul&gt; &lt;li&gt;&lt;code&gt;FIXED_PRICE&lt;/code&gt; - Indicates the buyer can purchase the item for a set price using the Buy It Now button. &lt;/li&gt;  &lt;li&gt;&lt;code&gt;AUCTION&lt;/code&gt; - Indicates the buyer can place a bid for the item. After the first bid is placed, this becomes a live auction item and is the only buying option for this item.&lt;/li&gt;  &lt;li&gt;&lt;code&gt;BEST_OFFER&lt;/code&gt; - Indicates the buyer can send the seller a price they&#39;re willing to pay for the item. The seller can accept, reject, or send a counter offer. For more information on how this works, see &lt;a href&#x3D;\&quot;https://www.ebay.com/help/buying/buy-now/making-best-offer?id&#x3D;4019\&quot;&gt;Making a Best Offer&lt;/a&gt;.&lt;/li&gt; &lt;/ul&gt; Code so that your app gracefully handles any future changes to this list. | [optional] 
+**BuyingOptions** | Pointer to **[]string** | A comma separated list of all the purchase options available for the item. The values returned are:&lt;ul&gt;&lt;li&gt;&lt;code&gt;FIXED_PRICE&lt;/code&gt; - Indicates the buyer can purchase the item for a set price using the Buy It Now button.&lt;/li&gt;&lt;li&gt;&lt;code&gt;AUCTION&lt;/code&gt; - Indicates the buyer can place a bid for the item. After the first bid is placed, this becomes a live auction item and is the only buying option for this item.&lt;/li&gt;&lt;li&gt;&lt;code&gt;BEST_OFFER&lt;/code&gt; - Indicates the buyer can send the seller a price they&#39;re willing to pay for the item. The seller can accept, reject, or send a counter offer. For more information on how this works, see &lt;a href&#x3D;\&quot;https://www.ebay.com/help/buying/buy-now/making-best-offer?id&#x3D;4019 \&quot;&gt;Making a Best Offer&lt;/a&gt;.&lt;/li&gt;&lt;li&gt;&lt;code&gt;CLASSIFIED_AD&lt;/code&gt; - Indicates that the final sales transaction is to be completed outside of the eBay environment.&lt;/li&gt;&lt;/ul&gt;Code so that your app gracefully handles any future changes to this list. | [optional] 
 **CategoryId** | Pointer to **string** | The ID of the leaf category for this item. A leaf category is the lowest level in that category and has no children. | [optional] 
+**CategoryIdPath** | Pointer to **string** | The IDs of every category in the item path, separated by pipe characters, starting with the top level parent category.&lt;br&gt;&lt;br&gt;For example, if an item belongs to the top level category Home and Garden (category ID 11700), followed by Home Improvement (159907), Heating, Cooling and Air (69197), and Thermostats (115947), the field would return the value: &lt;code&gt;11700|159907|69197|115947&lt;/code&gt;. | [optional] 
 **CategoryPath** | Pointer to **string** | Text that shows the category hierarchy of the item. For example: Computers/Tablets &amp;amp; Networking, Laptops &amp;amp; Netbooks, PC Laptops &amp;amp; Netbooks | [optional] 
 **Color** | Pointer to **string** | (Primary Item Aspect) Text describing the color of the item.  All the item aspects, including this aspect, are returned in the &lt;b&gt; localizedAspects&lt;/b&gt; container. | [optional] 
-**Condition** | Pointer to **string** | A short text description for the condition of the item, such as New or Used. For a list of condition names, see &lt;a href&#x3D;\&quot;https://developer.ebay.com/devzone/finding/callref/enums/conditionIdList.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Item Condition IDs and Names&lt;/a&gt;.  &lt;br /&gt;&lt;br /&gt;Code so that your app gracefully handles any future changes to this list. &lt;br /&gt;&lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt; Note: &lt;/b&gt;As of September 1, 2021, condition ID 2500 (&#39;Seller Refurbished&#39;) is no longer a valid item condition in the &lt;b&gt;Cell Phones &amp; Smartphones&lt;/b&gt; category (category ID 9355) for the following marketplaces: US, Canada, UK, Germany, and Australia. This refurbished item condition has been replaced by three new refurbished values, which include &#39;Excellent - Refurbished&#39; (condition ID 2010), &#39;Very Good - Refurbished&#39; (condition ID 2020), and &#39;Good - Refurbished&#39; (condition ID 2030).&lt;/span&gt; | [optional] 
-**ConditionDescription** | Pointer to **string** | A full text description for the condition of the item. This field elaborates on the value specified in the &lt;b&gt;condition&lt;/b&gt; field and provides full details for the condition of the item. &lt;br /&gt;&lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt; Note: &lt;/b&gt;As of September 1, 2021, condition ID 2500 (&#39;Seller Refurbished&#39;) is no longer a valid item condition in the &lt;b&gt;Cell Phones &amp; Smartphones&lt;/b&gt; category (category ID 9355) for the following marketplaces: US, Canada, UK, Germany, and Australia. This refurbished item condition has been replaced by three new refurbished values, which include &#39;Excellent - Refurbished&#39; (condition ID 2010), &#39;Very Good - Refurbished&#39; (condition ID 2020), and &#39;Good - Refurbished&#39; (condition ID 2030).&lt;/span&gt; | [optional] 
-**ConditionId** | Pointer to **string** | The identifier of the condition of the item. For example, 1000 is the identifier for NEW. For a list of condition names and IDs, see &lt;a href&#x3D;\&quot;https://developer.ebay.com/devzone/finding/callref/enums/conditionIdList.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Item Condition IDs and Names&lt;/a&gt;. &lt;br /&gt;&lt;br /&gt;Code so that your app gracefully handles any future changes to this list. &lt;br /&gt;&lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt; Note: &lt;/b&gt;As of September 1, 2021, condition ID 2500 (&#39;Seller Refurbished&#39;) is no longer a valid item condition in the &lt;b&gt;Cell Phones &amp; Smartphones&lt;/b&gt; category (category ID 9355) for the following marketplaces: US, Canada, UK, Germany, and Australia. This refurbished item condition has been replaced by three new refurbished values, which include &#39;Excellent - Refurbished&#39; (condition ID 2010), &#39;Very Good - Refurbished&#39; (condition ID 2020), and &#39;Good - Refurbished&#39; (condition ID 2030).&lt;/span&gt; | [optional] 
+**Condition** | Pointer to **string** | A short text description for the condition of the item, such as New or Used. For a list of condition names, see &lt;a href&#x3D;\&quot;https://developer.ebay.com/devzone/finding/callref/enums/conditionIdList.html \&quot; target&#x3D;\&quot;_blank\&quot;&gt;Item Condition IDs and Names&lt;/a&gt;.  &lt;br&gt;&lt;br&gt;Code so that your app gracefully handles any future changes to this list. | [optional] 
+**ConditionDescription** | Pointer to **string** | A full text description for the condition of the item. This field elaborates on the value specified in the &lt;b&gt;condition&lt;/b&gt; field and provides full details for the condition of the item. | [optional] 
+**ConditionDescriptors** | Pointer to [**[]ConditionDescriptor**](ConditionDescriptor.md) | This array is used by the seller to provide additional information about the condition of an item in a structured format. Condition descriptors are name-value attributes that indicate details about a particular condition of an item.&lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; Condition descriptors are currently only available for the following trading card categories:&lt;ul&gt;&lt;li&gt;Non-Sport Trading Card Singles&lt;/li&gt;&lt;li&gt;CCG Individual Cards&lt;/li&gt;&lt;li&gt;Sports Trading Card Singles&lt;/li&gt;&lt;/ul&gt;&lt;/span&gt; | [optional] 
+**ConditionId** | Pointer to **string** | The identifier of the condition of the item. For example, 1000 is the identifier for NEW. For a list of condition names and IDs, see &lt;a href&#x3D;\&quot;https://developer.ebay.com/devzone/finding/callref/enums/conditionIdList.html \&quot; target&#x3D;\&quot;_blank\&quot;&gt;Item Condition IDs and Names&lt;/a&gt;. &lt;br&gt;&lt;br&gt;Code so that your app gracefully handles any future changes to this list. | [optional] 
 **CurrentBidPrice** | Pointer to [**ConvertedAmount**](ConvertedAmount.md) |  | [optional] 
 **Description** | Pointer to **string** | The full description of the item that was created by the seller. This can be plain text or rich content and can be very large. | [optional] 
 **EcoParticipationFee** | Pointer to [**ConvertedAmount**](ConvertedAmount.md) |  | [optional] 
 **EligibleForInlineCheckout** | Pointer to **bool** | This field indicates if the item can be purchased using the Buy &lt;a href&#x3D;\&quot;/api-docs/buy/order/resources/methods\&quot;&gt;Order API&lt;/a&gt;. &lt;ul&gt; &lt;li&gt;If the value of this field is &lt;code&gt;true&lt;/code&gt;, this indicates that the item can be purchased using the &lt;b&gt; Order API&lt;/b&gt;. &lt;/li&gt;  &lt;li&gt;If the value of this field is &lt;code&gt;false&lt;/code&gt;, this indicates that the item cannot be purchased using the &lt;b&gt; Order API&lt;/b&gt; and must be purchased on the eBay site.&lt;/li&gt; &lt;/ul&gt; | [optional] 
 **EnabledForGuestCheckout** | Pointer to **bool** | This indicates if the item can be purchased using Guest Checkout in the &lt;a href&#x3D;\&quot;/api-docs/buy/order/resources/methods\&quot;&gt;Order API&lt;/a&gt;. You can use this flag to exclude items from your inventory that are not eligible for Guest Checkout, such as gift cards. | [optional] 
-**EnergyEfficiencyClass** | Pointer to **string** | This indicates the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/European_Union_energy_label\&quot;&gt;European energy efficiency&lt;/a&gt; rating (EEK) of the item. This field is returned only if the seller specified the energy efficiency rating. &lt;br /&gt;&lt;br /&gt;The rating is a set of energy efficiency classes from A to G, where &#39;A&#39; is the most energy efficient and &#39;G&#39; is the least efficient. This rating helps buyers choose between various models. &lt;br /&gt;&lt;br /&gt;When the manufacturer&#39;s specifications for this item are available, the link to this information is returned in the &lt;b&gt; productFicheWebUrl&lt;/b&gt; field. | [optional] 
+**EnergyEfficiencyClass** | Pointer to **string** | This indicates the &lt;a href&#x3D;\&quot;https://en.wikipedia.org/wiki/European_Union_energy_label \&quot;&gt;European energy efficiency&lt;/a&gt; rating (EEK) of the item. This field is returned only if the seller specified the energy efficiency rating. &lt;br&gt;&lt;br&gt;The rating is a set of energy efficiency classes from A to G, where &#39;A&#39; is the most energy efficient and &#39;G&#39; is the least efficient. This rating helps buyers choose between various models. &lt;br&gt;&lt;br&gt;When the manufacturer&#39;s specifications for this item are available, the link to this information is returned in the &lt;b&gt; productFicheWebUrl&lt;/b&gt; field. | [optional] 
 **Epid** | Pointer to **string** | An EPID is the eBay product identifier of a product from the eBay product catalog.  This indicates the product in which the item belongs. | [optional] 
 **EstimatedAvailabilities** | Pointer to [**[]EstimatedAvailability**](EstimatedAvailability.md) | The estimated number of this item that are available for purchase. Because the quantity of an item can change several times within a second, it is impossible to return the exact quantity. So instead of returning quantity, the estimated availability of the item is returned. | [optional] 
 **Gender** | Pointer to **string** | (Primary Item Aspect) The gender for the item. This is used for items that could vary by gender, such as clothing. For example: male, female, or unisex. All the item aspects, including this aspect, are returned in the &lt;b&gt; localizedAspects&lt;/b&gt; container. | [optional] 
-**Gtin** | Pointer to **string** | The unique Global Trade Item number of the item as defined by &lt;a href&#x3D;\&quot;https://www.gtin.info\&quot; target&#x3D;\&quot;_blank\&quot;&gt;https://www.gtin.info&lt;/a&gt;. This can be a UPC (Universal Product Code), EAN (European Article Number), or an ISBN (International Standard Book Number) value. | [optional] 
+**Gtin** | Pointer to **string** | The unique Global Trade Item number of the item as defined by &lt;a href&#x3D;\&quot;https://www.gtin.info \&quot; target&#x3D;\&quot;_blank\&quot;&gt;https://www.gtin.info&lt;/a&gt;. This can be a UPC (Universal Product Code), EAN (European Article Number), or an ISBN (International Standard Book Number) value. | [optional] 
+**HazardousMaterialsLabels** | Pointer to [**HazardousMaterialsLabels**](HazardousMaterialsLabels.md) |  | [optional] 
 **Image** | Pointer to [**Image**](Image.md) |  | [optional] 
-**InferredEpid** | Pointer to **string** | The ePID (eBay Product ID of a product from the eBay product catalog) for the item, which has been programmatically determined by eBay using the item&#39;s title, aspects, and other data. &lt;br /&gt;&lt;br /&gt;If the seller provided an ePID for the item, the seller&#39;s value is returned in the &lt;b&gt; epid&lt;/b&gt; field. &lt;br /&gt;&lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt; Note: &lt;/b&gt; This field is returned only for authorized Partners.&lt;/span&gt; | [optional] 
-**ItemAffiliateWebUrl** | Pointer to **string** | The URL of the View Item page of the item, which includes the affiliate tracking ID. This field is only returned if the eBay partner enables affiliate tracking for the item by including the  &lt;a href&#x3D;\&quot;/api-docs/buy/static/api-browse.html#Headers\&quot;&gt;&lt;code&gt;X-EBAY-C-ENDUSERCTX&lt;/code&gt;&lt;/a&gt; request header in the method.  &lt;br /&gt; &lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; eBay Partner Network, in order to be commissioned for your sales, you must use this URL to forward your buyer to the ebay.com site. &lt;/span&gt; | [optional] 
-**ItemEndDate** | Pointer to **string** | This timestamp indicates the date and time up to which the item can be purchased.  This value is returned in UTC format (yyyy-MM-ddThh:mm:ss.sssZ), which you can convert into the local time of the buyer.&lt;br /&gt;&lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt; Note: &lt;/b&gt;This field is only returned for auction listings.&lt;/span&gt; | [optional] 
+**InferredEpid** | Pointer to **string** | The ePID (eBay Product ID of a product from the eBay product catalog) for the item, which has been programmatically determined by eBay using the item&#39;s title, aspects, and other data. &lt;br&gt;&lt;br&gt;If the seller provided an ePID for the item, the seller&#39;s value is returned in the &lt;b&gt; epid&lt;/b&gt; field. &lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt; Note: &lt;/b&gt; This field is returned only for authorized Partners.&lt;/span&gt; | [optional] 
+**ItemAffiliateWebUrl** | Pointer to **string** | The URL to the View Item page of the item which includes the affiliate tracking ID.&lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; In order to receive commissions on sales, eBay Partner Network affiliates must use this URL to forward buyers to the listing on the eBay marketplace.&lt;/span&gt;&lt;br&gt;The &lt;b&gt;itemAffiliateWebUrl&lt;/b&gt; is only returned if:&lt;ul&gt;&lt;li&gt;The marketplace through which the item is being viewed is part of the eBay Partner Network. Currently Singapore (&lt;code&gt;EBAY_SG&lt;/code&gt;) is &lt;b&gt;not&lt;/b&gt; supported.&lt;br&gt;&lt;br&gt;For additional information, refer to &lt;a href&#x3D;\&quot;https://partnerhelp.ebay.com/helpcenter/s/article/countries-available-as-a-program-in-EPN?language&#x3D;en_US \&quot; target&#x3D;\&quot;_blank\&quot;&gt;eBay Partner Network&lt;/a&gt;.&lt;/li&gt;&lt;li&gt;The seller enables affiliate tracking for the item by including the &lt;code&gt;&lt;a href&#x3D;\&quot;/api-docs/buy/static/api-browse.html#Headers\&quot;&gt;X-EBAY-C-ENDUSERCTX&lt;/a&gt;&lt;/code&gt; request header in the method.&lt;/li&gt;&lt;/ul&gt; | [optional] 
+**ItemCreationDate** | Pointer to **string** | A timestamp that indicates the date and time an item listing was created.&lt;br&gt;&lt;br&gt;This value is returned in UTC format (yyyy-MM-ddThh:mm:ss.sssZ), which can be converted into the local time of the buyer. | [optional] 
+**ItemEndDate** | Pointer to **string** | This timestamp indicates the date and time up to which the item can be purchased.  This value is returned in UTC format (yyyy-MM-ddThh:mm:ss.sssZ), which you can convert into the local time of the buyer.&lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt; Note: &lt;/b&gt;This field is only returned for auction listings.&lt;/span&gt; | [optional] 
 **ItemId** | Pointer to **string** | The unique RESTful identifier of the item. | [optional] 
 **ItemLocation** | Pointer to [**Address**](Address.md) |  | [optional] 
 **ItemWebUrl** | Pointer to **string** | The URL of the View Item page of the item. This enables you to include a \&quot;Report Item on eBay\&quot; link that takes the buyer to the View Item page on eBay. From there they can report any issues regarding this item to eBay. | [optional] 
 **LegacyItemId** | Pointer to **string** | The unique identifier of the eBay listing that contains the item. This is the traditional/legacy ID that is often seen in the URL of the listing View Item page. | [optional] 
+**ListingMarketplaceId** | Pointer to **string** | The ID of the eBay marketplace where the item is listed. For implementation help, refer to &lt;a href&#x3D;&#39;https://developer.ebay.com/api-docs/buy/browse/types/ba:MarketplaceIdEnum&#39;&gt;eBay API documentation&lt;/a&gt; | [optional] 
 **LocalizedAspects** | Pointer to [**[]TypedNameValue**](TypedNameValue.md) | An array of containers that show the complete list of the aspect name/value pairs that describe the variation of the item. | [optional] 
-**LotSize** | Pointer to **int32** | The number of items in a lot. In other words, a lot size is the number of items that are being sold together.  &lt;br /&gt;&lt;br /&gt;A lot is a set of two or more items included in a single listing that must be purchased together in a single order line item. All the items in the lot are the same but there can be multiple items in a single lot,  such as the package of batteries shown in the example below.   &lt;br /&gt;&lt;br /&gt;&lt;table border&#x3D;\&quot;1\&quot;&gt; &lt;tr&gt; &lt;tr&gt;  &lt;th&gt;Item&lt;/th&gt;  &lt;th&gt;Lot Definition&lt;/th&gt; &lt;th&gt;Lot Size&lt;/th&gt;&lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;A package of 24 AA batteries&lt;/td&gt;  &lt;td&gt;A box of 10 packages&lt;/td&gt;  &lt;td&gt;10  &lt;/td&gt; &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;A P235/75-15 Goodyear tire &lt;/td&gt;  &lt;td&gt;4 tires  &lt;/td&gt;  &lt;td&gt;4  &lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Fashion Jewelry Rings  &lt;/td&gt; &lt;td&gt;Package of 100 assorted rings  &lt;/td&gt; &lt;td&gt;100 &lt;/td&gt; &lt;/tr&gt;&lt;/table&gt;  &lt;br /&gt;&lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;  Lots are not supported in all categories.  &lt;/span&gt; | [optional] 
+**LotSize** | Pointer to **int32** | The number of items in a lot. In other words, a lot size is the number of items that are being sold together.  &lt;br&gt;&lt;br&gt;A lot is a set of two or more items included in a single listing that must be purchased together in a single order line item. All the items in the lot are the same but there can be multiple items in a single lot,  such as the package of batteries shown in the example below.   &lt;br&gt;&lt;br&gt;&lt;table border&#x3D;\&quot;1\&quot;&gt; &lt;tr&gt; &lt;tr&gt;  &lt;th&gt;Item&lt;/th&gt;  &lt;th&gt;Lot Definition&lt;/th&gt; &lt;th&gt;Lot Size&lt;/th&gt;&lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;A package of 24 AA batteries&lt;/td&gt;  &lt;td&gt;A box of 10 packages&lt;/td&gt;  &lt;td&gt;10  &lt;/td&gt; &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;A P235/75-15 Goodyear tire &lt;/td&gt;  &lt;td&gt;4 tires  &lt;/td&gt;  &lt;td&gt;4  &lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Fashion Jewelry Rings  &lt;/td&gt; &lt;td&gt;Package of 100 assorted rings  &lt;/td&gt; &lt;td&gt;100 &lt;/td&gt; &lt;/tr&gt;&lt;/table&gt;  &lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;  Lots are not supported in all categories.  &lt;/span&gt; | [optional] 
+**Manufacturer** | Pointer to [**CompanyAddress**](CompanyAddress.md) |  | [optional] 
 **MarketingPrice** | Pointer to [**MarketingPrice**](MarketingPrice.md) |  | [optional] 
 **Material** | Pointer to **string** | (Primary Item Aspect) Text describing what the item is made of. For example, silk. All the item aspects, including this aspect, are returned in the &lt;b&gt; localizedAspects&lt;/b&gt; container. | [optional] 
 **MinimumPriceToBid** | Pointer to [**ConvertedAmount**](ConvertedAmount.md) |  | [optional] 
@@ -49,12 +56,15 @@ Name | Type | Description | Notes
 **PriceDisplayCondition** | Pointer to **string** | Indicates when in the buying flow the item&#39;s price can appear for minimum advertised price (MAP) items, which is the lowest price a retailer can advertise/show for this item. For implementation help, refer to &lt;a href&#x3D;&#39;https://developer.ebay.com/api-docs/buy/browse/types/gct:PriceDisplayConditionEnum&#39;&gt;eBay API documentation&lt;/a&gt; | [optional] 
 **PrimaryItemGroup** | Pointer to [**ItemGroupSummary**](ItemGroupSummary.md) |  | [optional] 
 **PrimaryProductReviewRating** | Pointer to [**ReviewRating**](ReviewRating.md) |  | [optional] 
-**PriorityListing** | Pointer to **bool** | This field is returned as &lt;code&gt;true&lt;/code&gt; if the listing is part of a Promoted Listing campaign. Promoted Listings are available to Above Standard and Top Rated sellers with recent sales activity.&lt;br /&gt;&lt;br /&gt;For more information, see &lt;a href&#x3D;\&quot;https://pages.ebay.com/seller-center/listing-and-marketing/promoted-listings.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Promoted Listings&lt;/a&gt;. | [optional] 
+**PriorityListing** | Pointer to **bool** | This field is returned as &lt;code&gt;true&lt;/code&gt; if the listing is part of a Promoted Listing campaign. Promoted Listings are available to Above Standard and Top Rated sellers with recent sales activity.&lt;br&gt;&lt;br&gt;For more information, see &lt;a href&#x3D;\&quot;https://pages.ebay.com/seller-center/listing-and-marketing/promoted-listings.html \&quot; target&#x3D;\&quot;_blank\&quot;&gt;Promoted Listings&lt;/a&gt;. | [optional] 
 **Product** | Pointer to [**Product**](Product.md) |  | [optional] 
 **ProductFicheWebUrl** | Pointer to **string** | The URL of a page containing the manufacturer&#39;s specification of this item, which helps buyers make a purchasing decision. This information is available only for items that include the European energy efficiency rating (EEK) but is not available for &lt;em&gt; all&lt;/em&gt; items with an EEK rating and is returned only if this information is available. The EEK rating of the item is returned in the &lt;b&gt; energyEfficiencyClass&lt;/b&gt; field. | [optional] 
-**QualifiedPrograms** | Pointer to **[]string** | An array of the qualified programs available for the item, such as EBAY_PLUS, AUTHENTICITY_GUARANTEE, and AUTHENTICITY_VERIFICATION.&lt;br /&gt;&lt;br /&gt;eBay Plus is a premium account option for buyers, which provides benefits such as fast free domestic shipping and free returns on selected items. Top-Rated eBay sellers must opt in to eBay Plus to be able to offer the program on qualifying listings. Sellers must commit to next-day delivery of those items.&lt;br /&gt;&lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; eBay Plus is available only to buyers in Germany, Austria, and Australia marketplaces.&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;The eBay &lt;a href&#x3D;\&quot;https://pages.ebay.com/authenticity-guarantee/\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Authenticity Guarantee&lt;/a&gt; program enables third-party authenticators to perform authentication verification inspections on items such as watches and sneakers. | [optional] 
+**ProductSafetyLabels** | Pointer to [**ProductSafetyLabels**](ProductSafetyLabels.md) |  | [optional] 
+**QualifiedPrograms** | Pointer to **[]string** | An array of the qualified programs available for the item, or for the item group when returned for the &lt;b&gt;getItemsByItemGroup&lt;/b&gt; method, such as EBAY_PLUS, AUTHENTICITY_GUARANTEE, and AUTHENTICITY_VERIFICATION.&lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;The &lt;code&gt;AUTHENTICITY_GUARANTEE&lt;/code&gt; value being returned by the &lt;b&gt;getItemsByItemGroup&lt;/b&gt; method indicates that at least one item in the item group supports this program, but doesn&#39;t guarantee that the program is available to all items in the item group. To verify if the Authenticity Program is indeed available for the item that you are interested in, grab the &lt;b&gt;items.itemId&lt;/b&gt; value for that item and use the &lt;b&gt;getItem&lt;/b&gt; method. This method will return specific details on that particular item, including whether or not the Authenticity Guarantee Program is available for the item. Look for the &lt;b&gt;qualifiedPrograms&lt;/b&gt; array and &lt;b&gt;authenticityGuarantee&lt;/b&gt; container in the &lt;b&gt;getItem&lt;/b&gt; response for this information.&lt;/span&gt;&lt;br&gt;&lt;br&gt;eBay Plus is a premium account option for buyers, which provides benefits such as fast free domestic shipping and free returns on selected items. Top-Rated eBay sellers must opt in to eBay Plus to be able to offer the program on qualifying listings. Sellers must commit to next-day delivery of those items.&lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt; eBay Plus is available only to buyers in Germany, Austria, and Australia marketplaces.&lt;/span&gt;&lt;br&gt;&lt;br&gt;The eBay &lt;a href&#x3D;\&quot;https://pages.ebay.com/authenticity-guarantee/ \&quot; target&#x3D;\&quot;_blank\&quot;&gt;Authenticity Guarantee&lt;/a&gt; program enables third-party authenticators to perform authentication verification inspections on items such as watches and sneakers. | [optional] 
 **QuantityLimitPerBuyer** | Pointer to **int32** | The maximum number for a specific item that one buyer can purchase. | [optional] 
+**RepairScore** | Pointer to **string** | A score that describes how easy it is to repair the product. Score values range from 0.1 (hardest to repair) to 10.0 (easiest), always including a single decimal place. | [optional] 
 **ReservePriceMet** | Pointer to **bool** | This indicates if the reserve price of the item has been met. A reserve price is set by the seller and is the minimum amount the seller is willing to sell the item for. &lt;p&gt;If the highest bid is not equal to or higher than the reserve price when the auction ends, the listing ends and the item is not sold.&lt;/p&gt; &lt;p&gt;&lt;b&gt; Note: &lt;/b&gt;This is returned only for auctions that have a reserve price.&lt;/p&gt; | [optional] 
+**ResponsiblePersons** | Pointer to [**[]ResponsiblePerson**](ResponsiblePerson.md) | This array provides information about one or more EU-based Responsible Persons or entities associated with the listing. | [optional] 
 **ReturnTerms** | Pointer to [**ItemReturnTerms**](ItemReturnTerms.md) |  | [optional] 
 **Seller** | Pointer to [**SellerDetail**](SellerDetail.md) |  | [optional] 
 **SellerCustomPolicies** | Pointer to [**[]SellerCustomPolicy**](SellerCustomPolicy.md) | A list of the custom policies that are applied to a listing. | [optional] 
@@ -63,18 +73,18 @@ Name | Type | Description | Notes
 **ShipToLocations** | Pointer to [**ShipToLocations**](ShipToLocations.md) |  | [optional] 
 **ShortDescription** | Pointer to **string** | This text string is derived from the item condition and the item aspects (such as size, color, capacity, model, brand, etc.). | [optional] 
 **Size** | Pointer to **string** | (Primary Item Aspect) The size of the item. For example, &#39;7&#39; for a size 7 shoe. All the item aspects, including this aspect, are returned in the &lt;b&gt; localizedAspects&lt;/b&gt; container. | [optional] 
-**SizeSystem** | Pointer to **string** | (Primary Item Aspect) The sizing system of the country.  All the item aspects, including this aspect, are returned in the &lt;b&gt; localizedAspects&lt;/b&gt; container. &lt;br /&gt;&lt;br /&gt;&lt;b&gt; Valid Values: &lt;/b&gt; &lt;br /&gt;AU (Australia),  &lt;br /&gt;BR (Brazil), &lt;br /&gt;CN (China),  &lt;br /&gt;DE (Germany),  &lt;br /&gt;EU (European Union),  &lt;br /&gt; FR (France), &lt;br /&gt; IT (Italy),  &lt;br /&gt;JP (Japan), &lt;br /&gt;MX (Mexico),  &lt;br /&gt;US (USA), &lt;br /&gt; UK (United Kingdom) &lt;br /&gt;&lt;br /&gt;Code so that your app gracefully handles any future changes to this list.  | [optional] 
+**SizeSystem** | Pointer to **string** | (Primary Item Aspect) The sizing system of the country.  All the item aspects, including this aspect, are returned in the &lt;b&gt; localizedAspects&lt;/b&gt; container. &lt;br&gt;&lt;br&gt;&lt;b&gt; Valid Values: &lt;/b&gt; &lt;br&gt;AU (Australia),  &lt;br&gt;BR (Brazil), &lt;br&gt;CN (China),  &lt;br&gt;DE (Germany),  &lt;br&gt;EU (European Union),  &lt;br&gt; FR (France), &lt;br&gt; IT (Italy),  &lt;br&gt;JP (Japan), &lt;br&gt;MX (Mexico),  &lt;br&gt;US (USA), &lt;br&gt; UK (United Kingdom) &lt;br&gt;&lt;br&gt;Code so that your app gracefully handles any future changes to this list.  | [optional] 
 **SizeType** | Pointer to **string** | (Primary Item Aspect) Text describing a size group in which the item would be included, such as regular, petite, plus, big-and-tall or maternity. All the item aspects, including this aspect, are returned in the &lt;b&gt; localizedAspects&lt;/b&gt; container. | [optional] 
 **Subtitle** | Pointer to **string** | A subtitle is optional and allows the seller to provide more information about the product, possibly including keywords that may assist with search results. | [optional] 
 **Taxes** | Pointer to [**[]Taxes**](Taxes.md) | The container for the tax information for the item. | [optional] 
 **Title** | Pointer to **string** | The seller-created title of the item. &lt;br&gt;&lt;br&gt;&lt;b&gt; Maximum Length: &lt;/b&gt; 80 characters | [optional] 
-**TopRatedBuyingExperience** | Pointer to **bool** | This indicates if the item a top-rated plus item. There are three benefits of a top-rated plus item; a  minimum 30-day money-back return policy, shipping the items in 1 business day with tracking provided, and the added comfort of knowing this item is from experienced sellers with the highest buyer ratings. See the &lt;a href&#x3D;\&quot;https://pages.ebay.com/topratedplus/index.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Top Rated Plus Items &lt;/a&gt; and  &lt;a href&#x3D;\&quot;https://pages.ebay.com/help/sell/top-rated.html target&#x3D;\&quot;_blank\&quot;&gt;Becoming a Top Rated Seller and qualifying for Top Rated Plus&lt;/a&gt; help topics for more information. | [optional] 
+**TopRatedBuyingExperience** | Pointer to **bool** | This indicates if the item a top-rated plus item. There are three benefits of a top-rated plus item: a  minimum 30-day money-back return policy, shipping the items in 1 business day with tracking provided, and the added comfort of knowing this item is from experienced sellers with the highest buyer ratings. See the &lt;a href&#x3D;\&quot;https://pages.ebay.com/topratedplus/index.html \&quot; target&#x3D;\&quot;_blank\&quot;&gt;Top Rated Plus Items &lt;/a&gt; and &lt;a href&#x3D;\&quot;https://pages.ebay.com/help/sell/top-rated.html \&quot; target&#x3D;\&quot;_blank\&quot;&gt;Becoming a Top Rated Seller and qualifying for Top Rated Plus&lt;/a&gt; help topics for more information. | [optional] 
 **TyreLabelImageUrl** | Pointer to **string** | The URL to the image that shows the information on the tyre label. | [optional] 
 **UniqueBidderCount** | Pointer to **int32** | This integer value indicates the number of different eBay users who have placed one or more bids on an auction item. This field is only applicable to auction items. | [optional] 
 **UnitPrice** | Pointer to [**ConvertedAmount**](ConvertedAmount.md) |  | [optional] 
-**UnitPricingMeasure** | Pointer to **string** | The designation, such as size, weight, volume, count, etc., that was used to specify the quantity of the item.  This helps buyers compare prices. &lt;br /&gt;&lt;br /&gt;For example, the following tells the buyer that the item is 7.99 per 100 grams. &lt;br /&gt;&lt;br /&gt;&lt;code&gt;\&quot;unitPricingMeasure\&quot;: \&quot;100g\&quot;,&lt;br /&gt; \&quot;unitPrice\&quot;: {&lt;br /&gt;&amp;nbsp;&amp;nbsp;\&quot;value\&quot;: \&quot;7.99\&quot;,&lt;br /&gt;&amp;nbsp;&amp;nbsp;\&quot;currency\&quot;: \&quot;GBP\&quot;&lt;/code&gt; | [optional] 
+**UnitPricingMeasure** | Pointer to **string** | The designation, such as size, weight, volume, count, etc., that was used to specify the quantity of the item.  This helps buyers compare prices. &lt;br&gt;&lt;br&gt;For example, the following tells the buyer that the item is 7.99 per 100 grams. &lt;br&gt;&lt;br&gt;&lt;code&gt;\&quot;unitPricingMeasure\&quot;: \&quot;100g\&quot;,&lt;br&gt; \&quot;unitPrice\&quot;: {&lt;br&gt;&amp;nbsp;&amp;nbsp;\&quot;value\&quot;: \&quot;7.99\&quot;,&lt;br&gt;&amp;nbsp;&amp;nbsp;\&quot;currency\&quot;: \&quot;GBP\&quot;&lt;/code&gt; | [optional] 
 **Warnings** | Pointer to [**[]Error**](Error.md) | An array of warning messages. These types of errors do not prevent the method from executing but should be checked. | [optional] 
-**WatchCount** | Pointer to **int32** | The number of users that have added the item to their watch list.&lt;br /&gt;&lt;br /&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt; &lt;strong&gt;Note:&lt;/strong&gt; This field is restricted to applications that have been granted permission to access this feature. You must submit an &lt;a href&#x3D;\&quot;https://developer.ebay.com/my/support/tickets?tab&#x3D;app-check\&quot;&gt;App Check ticket&lt;/a&gt; to request this access. In the App Check form, add a note to the &lt;b&gt;Application Title/Summary&lt;/b&gt; and/or &lt;b&gt;Application Details&lt;/b&gt; fields that you want access to Watch Count data in the Browse API.&lt;/span&gt; | [optional] 
+**WatchCount** | Pointer to **int32** | The number of users that have added the item to their watch list.&lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt; &lt;strong&gt;Note:&lt;/strong&gt; This field is restricted to applications that have been granted permission to access this feature. You must submit an &lt;a href&#x3D;\&quot;https://developer.ebay.com/my/support/tickets?tab&#x3D;app-check \&quot;&gt;App Check ticket&lt;/a&gt; to request this access. In the App Check form, add a note to the &lt;b&gt;Application Title/Summary&lt;/b&gt; and/or &lt;b&gt;Application Details&lt;/b&gt; fields that you want access to Watch Count data in the Browse API.&lt;/span&gt; | [optional] 
 
 ## Methods
 
@@ -119,6 +129,31 @@ SetAdditionalImages sets AdditionalImages field to given value.
 `func (o *Item) HasAdditionalImages() bool`
 
 HasAdditionalImages returns a boolean if a field has been set.
+
+### GetAddonServices
+
+`func (o *Item) GetAddonServices() []AddonService`
+
+GetAddonServices returns the AddonServices field if non-nil, zero value otherwise.
+
+### GetAddonServicesOk
+
+`func (o *Item) GetAddonServicesOk() (*[]AddonService, bool)`
+
+GetAddonServicesOk returns a tuple with the AddonServices field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddonServices
+
+`func (o *Item) SetAddonServices(v []AddonService)`
+
+SetAddonServices sets AddonServices field to given value.
+
+### HasAddonServices
+
+`func (o *Item) HasAddonServices() bool`
+
+HasAddonServices returns a boolean if a field has been set.
 
 ### GetAdultOnly
 
@@ -345,6 +380,31 @@ SetCategoryId sets CategoryId field to given value.
 
 HasCategoryId returns a boolean if a field has been set.
 
+### GetCategoryIdPath
+
+`func (o *Item) GetCategoryIdPath() string`
+
+GetCategoryIdPath returns the CategoryIdPath field if non-nil, zero value otherwise.
+
+### GetCategoryIdPathOk
+
+`func (o *Item) GetCategoryIdPathOk() (*string, bool)`
+
+GetCategoryIdPathOk returns a tuple with the CategoryIdPath field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCategoryIdPath
+
+`func (o *Item) SetCategoryIdPath(v string)`
+
+SetCategoryIdPath sets CategoryIdPath field to given value.
+
+### HasCategoryIdPath
+
+`func (o *Item) HasCategoryIdPath() bool`
+
+HasCategoryIdPath returns a boolean if a field has been set.
+
 ### GetCategoryPath
 
 `func (o *Item) GetCategoryPath() string`
@@ -444,6 +504,31 @@ SetConditionDescription sets ConditionDescription field to given value.
 `func (o *Item) HasConditionDescription() bool`
 
 HasConditionDescription returns a boolean if a field has been set.
+
+### GetConditionDescriptors
+
+`func (o *Item) GetConditionDescriptors() []ConditionDescriptor`
+
+GetConditionDescriptors returns the ConditionDescriptors field if non-nil, zero value otherwise.
+
+### GetConditionDescriptorsOk
+
+`func (o *Item) GetConditionDescriptorsOk() (*[]ConditionDescriptor, bool)`
+
+GetConditionDescriptorsOk returns a tuple with the ConditionDescriptors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConditionDescriptors
+
+`func (o *Item) SetConditionDescriptors(v []ConditionDescriptor)`
+
+SetConditionDescriptors sets ConditionDescriptors field to given value.
+
+### HasConditionDescriptors
+
+`func (o *Item) HasConditionDescriptors() bool`
+
+HasConditionDescriptors returns a boolean if a field has been set.
 
 ### GetConditionId
 
@@ -720,6 +805,31 @@ SetGtin sets Gtin field to given value.
 
 HasGtin returns a boolean if a field has been set.
 
+### GetHazardousMaterialsLabels
+
+`func (o *Item) GetHazardousMaterialsLabels() HazardousMaterialsLabels`
+
+GetHazardousMaterialsLabels returns the HazardousMaterialsLabels field if non-nil, zero value otherwise.
+
+### GetHazardousMaterialsLabelsOk
+
+`func (o *Item) GetHazardousMaterialsLabelsOk() (*HazardousMaterialsLabels, bool)`
+
+GetHazardousMaterialsLabelsOk returns a tuple with the HazardousMaterialsLabels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHazardousMaterialsLabels
+
+`func (o *Item) SetHazardousMaterialsLabels(v HazardousMaterialsLabels)`
+
+SetHazardousMaterialsLabels sets HazardousMaterialsLabels field to given value.
+
+### HasHazardousMaterialsLabels
+
+`func (o *Item) HasHazardousMaterialsLabels() bool`
+
+HasHazardousMaterialsLabels returns a boolean if a field has been set.
+
 ### GetImage
 
 `func (o *Item) GetImage() Image`
@@ -794,6 +904,31 @@ SetItemAffiliateWebUrl sets ItemAffiliateWebUrl field to given value.
 `func (o *Item) HasItemAffiliateWebUrl() bool`
 
 HasItemAffiliateWebUrl returns a boolean if a field has been set.
+
+### GetItemCreationDate
+
+`func (o *Item) GetItemCreationDate() string`
+
+GetItemCreationDate returns the ItemCreationDate field if non-nil, zero value otherwise.
+
+### GetItemCreationDateOk
+
+`func (o *Item) GetItemCreationDateOk() (*string, bool)`
+
+GetItemCreationDateOk returns a tuple with the ItemCreationDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItemCreationDate
+
+`func (o *Item) SetItemCreationDate(v string)`
+
+SetItemCreationDate sets ItemCreationDate field to given value.
+
+### HasItemCreationDate
+
+`func (o *Item) HasItemCreationDate() bool`
+
+HasItemCreationDate returns a boolean if a field has been set.
 
 ### GetItemEndDate
 
@@ -920,6 +1055,31 @@ SetLegacyItemId sets LegacyItemId field to given value.
 
 HasLegacyItemId returns a boolean if a field has been set.
 
+### GetListingMarketplaceId
+
+`func (o *Item) GetListingMarketplaceId() string`
+
+GetListingMarketplaceId returns the ListingMarketplaceId field if non-nil, zero value otherwise.
+
+### GetListingMarketplaceIdOk
+
+`func (o *Item) GetListingMarketplaceIdOk() (*string, bool)`
+
+GetListingMarketplaceIdOk returns a tuple with the ListingMarketplaceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetListingMarketplaceId
+
+`func (o *Item) SetListingMarketplaceId(v string)`
+
+SetListingMarketplaceId sets ListingMarketplaceId field to given value.
+
+### HasListingMarketplaceId
+
+`func (o *Item) HasListingMarketplaceId() bool`
+
+HasListingMarketplaceId returns a boolean if a field has been set.
+
 ### GetLocalizedAspects
 
 `func (o *Item) GetLocalizedAspects() []TypedNameValue`
@@ -969,6 +1129,31 @@ SetLotSize sets LotSize field to given value.
 `func (o *Item) HasLotSize() bool`
 
 HasLotSize returns a boolean if a field has been set.
+
+### GetManufacturer
+
+`func (o *Item) GetManufacturer() CompanyAddress`
+
+GetManufacturer returns the Manufacturer field if non-nil, zero value otherwise.
+
+### GetManufacturerOk
+
+`func (o *Item) GetManufacturerOk() (*CompanyAddress, bool)`
+
+GetManufacturerOk returns a tuple with the Manufacturer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManufacturer
+
+`func (o *Item) SetManufacturer(v CompanyAddress)`
+
+SetManufacturer sets Manufacturer field to given value.
+
+### HasManufacturer
+
+`func (o *Item) HasManufacturer() bool`
+
+HasManufacturer returns a boolean if a field has been set.
 
 ### GetMarketingPrice
 
@@ -1295,6 +1480,31 @@ SetProductFicheWebUrl sets ProductFicheWebUrl field to given value.
 
 HasProductFicheWebUrl returns a boolean if a field has been set.
 
+### GetProductSafetyLabels
+
+`func (o *Item) GetProductSafetyLabels() ProductSafetyLabels`
+
+GetProductSafetyLabels returns the ProductSafetyLabels field if non-nil, zero value otherwise.
+
+### GetProductSafetyLabelsOk
+
+`func (o *Item) GetProductSafetyLabelsOk() (*ProductSafetyLabels, bool)`
+
+GetProductSafetyLabelsOk returns a tuple with the ProductSafetyLabels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProductSafetyLabels
+
+`func (o *Item) SetProductSafetyLabels(v ProductSafetyLabels)`
+
+SetProductSafetyLabels sets ProductSafetyLabels field to given value.
+
+### HasProductSafetyLabels
+
+`func (o *Item) HasProductSafetyLabels() bool`
+
+HasProductSafetyLabels returns a boolean if a field has been set.
+
 ### GetQualifiedPrograms
 
 `func (o *Item) GetQualifiedPrograms() []string`
@@ -1345,6 +1555,31 @@ SetQuantityLimitPerBuyer sets QuantityLimitPerBuyer field to given value.
 
 HasQuantityLimitPerBuyer returns a boolean if a field has been set.
 
+### GetRepairScore
+
+`func (o *Item) GetRepairScore() string`
+
+GetRepairScore returns the RepairScore field if non-nil, zero value otherwise.
+
+### GetRepairScoreOk
+
+`func (o *Item) GetRepairScoreOk() (*string, bool)`
+
+GetRepairScoreOk returns a tuple with the RepairScore field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRepairScore
+
+`func (o *Item) SetRepairScore(v string)`
+
+SetRepairScore sets RepairScore field to given value.
+
+### HasRepairScore
+
+`func (o *Item) HasRepairScore() bool`
+
+HasRepairScore returns a boolean if a field has been set.
+
 ### GetReservePriceMet
 
 `func (o *Item) GetReservePriceMet() bool`
@@ -1369,6 +1604,31 @@ SetReservePriceMet sets ReservePriceMet field to given value.
 `func (o *Item) HasReservePriceMet() bool`
 
 HasReservePriceMet returns a boolean if a field has been set.
+
+### GetResponsiblePersons
+
+`func (o *Item) GetResponsiblePersons() []ResponsiblePerson`
+
+GetResponsiblePersons returns the ResponsiblePersons field if non-nil, zero value otherwise.
+
+### GetResponsiblePersonsOk
+
+`func (o *Item) GetResponsiblePersonsOk() (*[]ResponsiblePerson, bool)`
+
+GetResponsiblePersonsOk returns a tuple with the ResponsiblePersons field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResponsiblePersons
+
+`func (o *Item) SetResponsiblePersons(v []ResponsiblePerson)`
+
+SetResponsiblePersons sets ResponsiblePersons field to given value.
+
+### HasResponsiblePersons
+
+`func (o *Item) HasResponsiblePersons() bool`
+
+HasResponsiblePersons returns a boolean if a field has been set.
 
 ### GetReturnTerms
 

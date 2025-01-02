@@ -6,8 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FeedbackPercentage** | Pointer to **string** | The percentage of the total positive feedback. | [optional] 
 **FeedbackScore** | Pointer to **int32** | The feedback score of the seller. This value is based on the ratings from eBay members that bought items from this seller. | [optional] 
-**SellerAccountType** | Pointer to **string** | This indicates if the seller is a business or an individual. This is determined when the seller registers with eBay. If they register for a business account, this value will be BUSINESS. If they register for a private account, this value will be INDIVIDUAL. This designation is required by the tax laws in the following countries:  &lt;br /&gt;&lt;br /&gt; This field is returned only on the following sites. &lt;br /&gt;&lt;br /&gt;EBAY_AT, EBAY_BE, EBAY_CH, EBAY_DE, EBAY_ES, EBAY_FR, EBAY_GB, EBAY_IE, EBAY_IT, EBAY_PL &lt;br /&gt;&lt;br /&gt;&lt;b&gt; Valid Values:&lt;/b&gt; BUSINESS or INDIVIDUAL &lt;br /&gt;&lt;br /&gt;Code so that your app gracefully handles any future changes to this list.  | [optional] 
+**SellerAccountType** | Pointer to **string** | This indicates if the seller is a business or an individual. This is determined when the seller registers with eBay. If they register for a business account, this value will be BUSINESS. If they register for a private account, this value will be INDIVIDUAL. This designation is required by the tax laws in the following countries:  &lt;br&gt;&lt;br&gt; This field is returned only on the following sites. &lt;br&gt;&lt;br&gt;EBAY_AT, EBAY_BE, EBAY_CH, EBAY_DE, EBAY_ES, EBAY_FR, EBAY_GB, EBAY_IE, EBAY_IT, EBAY_PL &lt;br&gt;&lt;br&gt;&lt;b&gt; Valid Values:&lt;/b&gt; BUSINESS or INDIVIDUAL &lt;br&gt;&lt;br&gt;Code so that your app gracefully handles any future changes to this list.  | [optional] 
 **SellerLegalInfo** | Pointer to [**SellerLegalInfo**](SellerLegalInfo.md) |  | [optional] 
+**UserId** | Pointer to **string** | The unique identifier of an eBay user across all eBay sites. This value does not change, even when a user changes their username. | [optional] 
 **Username** | Pointer to **string** | The user name created by the seller for use on eBay. | [optional] 
 
 ## Methods
@@ -128,6 +129,31 @@ SetSellerLegalInfo sets SellerLegalInfo field to given value.
 `func (o *SellerDetail) HasSellerLegalInfo() bool`
 
 HasSellerLegalInfo returns a boolean if a field has been set.
+
+### GetUserId
+
+`func (o *SellerDetail) GetUserId() string`
+
+GetUserId returns the UserId field if non-nil, zero value otherwise.
+
+### GetUserIdOk
+
+`func (o *SellerDetail) GetUserIdOk() (*string, bool)`
+
+GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserId
+
+`func (o *SellerDetail) SetUserId(v string)`
+
+SetUserId sets UserId field to given value.
+
+### HasUserId
+
+`func (o *SellerDetail) HasUserId() bool`
+
+HasUserId returns a boolean if a field has been set.
 
 ### GetUsername
 

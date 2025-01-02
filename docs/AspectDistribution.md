@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AspectValueDistributions** | Pointer to [**[]AspectValueDistribution**](AspectValueDistribution.md) | An array of containers for the various values of the aspect and the match count and a HATEOAS reference (&lt;b&gt; refinementHref&lt;/b&gt;) for this aspect. | [optional] 
-**LocalizedAspectName** | Pointer to **string** | The name of an aspect, such as Brand, Color, etc. | [optional] 
+**AspectValueDistributions** | Pointer to [**[]AspectValueDistribution**](AspectValueDistribution.md) | An array of containers for the various values of the aspect and the match count, and a HATEOAS reference (&lt;code&gt;refinementHref&lt;/code&gt;) for this aspect. | [optional] 
+**LocalizedAspectName** | Pointer to **string** | The name of an aspect, such as &lt;i&gt;Brand&lt;/i&gt;, &lt;i&gt;Color&lt;/i&gt;, etc. | [optional] 
 
 ## Methods
 

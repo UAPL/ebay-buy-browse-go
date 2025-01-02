@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AddressLine1** | Pointer to **string** | The first line of the street address. &lt;b&gt; Note: &lt;/b&gt; This is conditionally returned in the &lt;b&gt; itemLocation&lt;/b&gt; field. | [optional] 
-**AddressLine2** | Pointer to **string** | The second line of the street address. This field is not always used, but can be used for &#39;Suite Number&#39; or &#39;Apt Number&#39;. | [optional] 
+**AddressLine1** | Pointer to **string** | The first line of the street address.&lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This is conditionally returned in the &lt;code&gt;itemLocation&lt;/code&gt; field.&lt;/span&gt; | [optional] 
+**AddressLine2** | Pointer to **string** | The second line of the street address. This field is not always used, but can be used for \&quot;Suite Number\&quot; or \&quot;Apt Number\&quot;. | [optional] 
 **City** | Pointer to **string** | The city of the address. | [optional] 
-**Country** | Pointer to **string** | The two-letter &lt;a href&#x3D;\&quot;https://www.iso.org/iso-3166-country-codes.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;ISO 3166&lt;/a&gt; standard of the country of the address. For implementation help, refer to &lt;a href&#x3D;&#39;https://developer.ebay.com/api-docs/buy/browse/types/ba:CountryCodeEnum&#39;&gt;eBay API documentation&lt;/a&gt; | [optional] 
+**Country** | Pointer to **string** | The two-letter &lt;a href&#x3D;\&quot;https://www.iso.org/iso-3166-country-codes.html \&quot; target&#x3D;\&quot;_blank\&quot;&gt;ISO 3166&lt;/a&gt; standard code for the country of the address. For implementation help, refer to &lt;a href&#x3D;&#39;https://developer.ebay.com/api-docs/buy/browse/types/ba:CountryCodeEnum&#39;&gt;eBay API documentation&lt;/a&gt; | [optional] 
 **County** | Pointer to **string** | The county of the address. | [optional] 
-**PostalCode** | Pointer to **string** | The postal code (or zip code in US) code of the address. Sellers set a postal code (or zip code in US) for items when they are listed. The postal code is used for calculating proximity searches. It is anonymized when returned in &lt;b&gt;itemLocation.postalCode&lt;/b&gt; via the API. | [optional] 
-**StateOrProvince** | Pointer to **string** | The state or province of the address.  &lt;b&gt; Note: &lt;/b&gt; This is conditionally returned in the &lt;b&gt; itemLocation&lt;/b&gt; field. | [optional] 
+**PostalCode** | Pointer to **string** | The postal code (or zip code in US) code of the address. Sellers set a postal code (or zip code in US) for items when they are listed. The postal code is used for calculating proximity searches. It is anonymized when returned in &lt;code&gt;itemLocation.postalCode&lt;/code&gt; via the API. | [optional] 
+**StateOrProvince** | Pointer to **string** | The state or province of the address.&lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This is conditionally returned in the &lt;code&gt;itemLocation&lt;/code&gt; field.&lt;/span&gt; | [optional] 
 
 ## Methods
 
