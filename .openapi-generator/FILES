@@ -160,6 +160,4 @@ model_time_duration.go
 model_typed_name_value.go
 model_vat_detail.go
 response.go
-test/api_item_summary_test.go
-test/api_item_test.go
 utils.go
